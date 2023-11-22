@@ -55,16 +55,16 @@ not paragraph.isPublished() ? 'paragraph--unpublished'
 {% set image_height      = content.field_image_height[0]["#markup"]      %}
 
 {% if option == "Image above text (no overlay)"  %}
-    <div {{ attributes.addClass(classes).addClass("image-above-text").addClass("paragraph-single-column-layout-container") }}>
+    <div {{ attributes.addClass(classes).addClass("image-above-text").addClass("paragraph-single-column-layout-container").addClass("card") }}>
         <div class="image">{{image}}   </div>
-        <div class="text" >{{body|raw}}</div>
+        <div class="text" style="background: {{color_background}}; color: {{color_foreground}}" >{{body|raw}}</div>
     </div>
 {% elseif option == "Image under text (overlay)" %}
     {#<div {{ attributes.addClass(classes).addClass("image-under-text").addClass("paragraph-single-column-layout-container") }}>#}
     {#    <div class="image">{{image}}   </div>#}
     {#    <div class="text">{{body|raw}}</div>#}
     {#</div>#}
-    <div {{ attributes.addClass(classes).addClass("card bg-dark text-white").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}};">
+    <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}};">
         {{image}}
         <div class="card-img-overlay" style="color: {{color_foreground}}">
             {{body|raw}}
@@ -72,7 +72,7 @@ not paragraph.isPublished() ? 'paragraph--unpublished'
     </div>
 {% elseif option == "Color under text (overlay)" %}
     {% if color_background == null and color_foreground == null  %}
-        <div {{ attributes.addClass(classes).addClass("color-under-text").addClass("paragraph-single-column-layout-container") }}>
+        <div {{ attributes.addClass(classes).addClass("card").addClass("color-under-text").addClass("paragraph-single-column-layout-container") }}>
             {{body|raw}}
         </div>
     {% else %}
