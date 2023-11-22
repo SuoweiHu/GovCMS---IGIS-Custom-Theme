@@ -47,16 +47,94 @@
   ]
 %}
 
-{% if content.field_swrap_left_and_right[0]['#markup'] == "Enable Swap" %}
-    {# Enable Swapping #}
-    <div {{ attributes.addClass(classes).addClass("layout-two-column").addClass("layout-two-column-swap-on") }} >
-        {{content.field_column_right}}
-        {{content.field_column_left}}
-    </div>
+
+{# Retriving the right/left context (field context) #}
+{% set swap_mode = content.field_swrap_left_and_right[0]['#markup'] %}
+{% if swap_mode == "Enable Swap" %}
+    {% set right_background  = content.field_left_background.0["#context"]["value"]        %}
+    {% set right_foreground  = content.field_left_fore.0["#context"]["value"]              %}
+    {% set left_background   = content.field_right_backgorund.0["#context"]["value"]       %}
+    {% set left_foreground   = content.field_right_foreground.0["#context"]["value"]       %}
+    {% set right_image   = content.field_image_left                         %}
+    {% set left_image    = content.field_image_right                        %}
+    {% set right_content = content.field_column_left                        %}
+    {% set left_content  = content.field_column_right                       %}
+    {% set right_mode    = content.field_left_.0['#markup']                 %}
+    {% set left_mode     = content.field_right_mode.0['#markup']            %}
 {% else %}
-    {# Disable Swapping #}
-    <div {{ attributes.addClass(classes).addClass("layout-two-column").addClass("layout-two-column-swap-off") }}>
-        {{content.field_column_left}}
-        {{content.field_column_right}}
-    </div>
+    {% set left_background  = content.field_left_background.0["#context"]["value"]        %}
+    {% set left_foreground  = content.field_left_fore.0["#context"]["value"]              %}
+    {% set right_background = content.field_right_backgorund.0["#context"]["value"]       %}
+    {% set right_foreground = content.field_right_foreground.0["#context"]["value"]       %}
+    {% set left_image    = content.field_image_left                         %}
+    {% set right_image   = content.field_image_right                        %}
+    {% set left_content  = content.field_column_left                        %}
+    {% set right_content = content.field_column_right                       %}
+    {% set left_mode     = content.field_left_.0['#markup']                 %}
+    {% set right_mode    = content.field_right_mode.0['#markup']            %}
 {% endif %}
+
+{# Getting the image's URL #}
+{% set left_image_URL    = left_image.0["#item"].parent.0.entity.uri.0.url  %}
+{% set left_image_ALT    = left_image.0["#item"].parent.0.alt               %}
+{% set right_image_URL   = right_image.0["#item"].parent.0.entity.uri.0.url %}
+{% set right_image_ALT   = right_image.0["#item"].parent.0.alt              %}
+
+<div {{ attributes.addClass(classes).addClass("layout-two-column").addClass("layout-two-column-swap-off").addClass("row")}}>
+        <div class="layout-two-column-left col-6">
+            {% if left_mode=="Image + Text" %}
+                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                    <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
+                    {{left_content}}
+                </div></div>
+            {% elseif left_mode=="Text + Image" %}
+                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                    {{left_content}}
+                    <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
+                </div></div>
+            {% elseif left_mode=="Image Only" %}
+                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                    <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
+                </div></div>
+            {% elseif left_mode=="Text Only" %}
+                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                    {{left_content}}
+                </div></div>
+            {% elseif left_mode=="Image below Image" %}
+                <div class="card" style="background:{{left_background}};"> <div class="card-body p-0">
+                    <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
+                    <div class="card-img-overlay" style="color:{{left_foreground}};">
+                        {{left_content}}
+                    </div>
+                </div></div>
+            {% endif %}
+        </div>
+        <div class="layout-two-column-right col-6">
+            {% if right_mode=="Image + Text" %}
+                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                    <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
+                    {{right_content}}
+                </div></div>
+            {% elseif right_mode=="Text + Image" %}
+                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                    {{right_content}}
+                    <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
+                </div></div>
+            {% elseif right_mode=="Image Only" %}
+                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                    <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
+                </div></div>
+            {% elseif right_mode=="Text Only" %}
+                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                    {{right_content}}
+                </div></div>
+            {% elseif right_mode=="Image below Image" %}
+                <div class="card" style="background:{{right_background}};"> <div class="card-body p-0">
+                    <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
+                    <div class="card-img-overlay" style="color:{{right_foreground}};">
+                        {{right_content}}
+                    </div>
+                </div></div>
+            {% endif %}
+        </div>
+</div>
