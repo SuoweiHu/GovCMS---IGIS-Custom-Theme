@@ -1,0 +1,39 @@
+$banner-padding-inline: 100px;
+$banner-padding-block:  30px;
+$banner-body-lines: 6;
+
+
+.carousel-item > .background-layer{
+	padding-inline: $banner-padding-inline;
+	padding-block:  $banner-padding-block;
+    background:     grey;
+    &.color-scheme-red{
+        background: rgb(255, 87, 87);
+        color: white;
+    }
+    &.color-scheme-blue{
+        background: #35737A;
+        color: white;
+    }
+    &.color-scheme-yellow{
+        background: #b5c252;
+        color: white;
+    }
+    &.color-scheme-green{
+        background: #357a47;
+        color: white;
+    }
+}
+.carousel-item .banner-body{
+    overflow: hidden;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: $banner-body-lines;
+    -webkit-box-orient: vertical;
+    margin: 20px auto;
+}
+
+
+.carousel-control-next, .carousel-control-prev{
+    width: 5%;
+}

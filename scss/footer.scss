@@ -1,0 +1,40 @@
+footer.site-footer {
+    background: #414042;
+    padding-block: $footer-verti-margin;
+
+    div.container {
+        width: $page-hori-width;
+        margin-inline: auto;
+
+        div.site-footer__top {
+            display: flex;
+
+            section {
+                flex-grow: 1;
+                margin-right: 50px;
+
+                div.block {
+                    border: none;
+                    padding-block: none;
+                    li {
+                        list-style: disc;
+                        color: $footer-foreground;
+
+                        a {
+                            text-decoration: underline 1px;
+                            color: $footer-foreground;
+                        }
+                    }
+                }
+                div#block-igis-footeracknoledgement{
+                    margin-block: 0px;
+                    padding-block: 0px;
+                    width: 50%;
+                    a {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

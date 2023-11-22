@@ -1,0 +1,43 @@
+
+$accordion-inbetween-spacing:                  0.25em;
+$accordion-color-header-background-expanded:  #153243;
+$accordion-color-header-foreground-expanded:  #fff;
+$accordion-color-header-background-collapsed: #35737a;
+$accordion-color-header-foreground-collapsed: #fff;
+$accordion-color-header-background-hover:     #284B63;
+$accordion-color-header-foreground-hover:     #fff;
+$accordion-color-border:                      #2e6268;
+
+
+
+// .accordion-single {
+    // --accordion-color-expanded  : $accordion-color-header-background-expanded;
+    // --accordion-color-collapsed : $accordion-color-header-background-collapsed;
+    // --accordion-color-hover     : $accordion-color-header-background-hover;
+// }
+
+.accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button  {
+	background: var(--accordion-color-collapsed,$accordion-color-header-background-collapsed);
+	color:      $accordion-color-header-foreground-collapsed;
+    transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+.accordion-item:has(.show) > h2.accordion-header > .accordion-button  {
+    background: var(--accordion-color-expanded,$accordion-color-header-background-expanded);
+    color:      $accordion-color-header-foreground-expanded;
+    transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+.accordion-item > h2.accordion-header > .accordion-button:hover  {
+	background:  var(--accordion-color-hover,$accordion-color-header-background-hover);
+	color:      $accordion-color-header-foreground-hover;
+    transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+h2.accordion-header > .accordion-button::after {
+	--bs-accordion-btn-icon:        url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+	--bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+.accordion-item {
+	border:        1px solid $accordion-color-border;
+	border-right:  2px solid $accordion-color-border;
+	border-bottom: 2px solid $accordion-color-border;
+	margin-bottom: $accordion-inbetween-spacing;
+}

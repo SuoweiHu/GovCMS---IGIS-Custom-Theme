@@ -1,0 +1,297 @@
+:root {
+  font-family: sans-serif;
+}
+
+:root {
+  --bs-link-color: $link-color-global;
+  --bs-link-color-hover: $link-color-global-hover;
+}
+
+a, .link {
+  color: #20698F;
+}
+a :hover, .link :hover {
+  color: #000000;
+}
+
+:root {
+  --bb-h1-color: $page-title-h1-color;
+  --bb-h2-color: $page-title-h2-color;
+  --bb-h3-color: $page-title-h3-color;
+}
+
+* h1, .h1 {
+  color: red;
+}
+
+* h2, .h1 {
+  color: red;
+}
+
+* h3, .h1 {
+  color: red;
+}
+
+nav#navbar-main {
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+nav#navbar-main .navbar-brand {
+  width: 100vw;
+  margin-inline: 0px;
+  padding-inline: calc(100% - 1600px);
+  margin-bottom: 10px;
+}
+nav#navbar-main div.navbar-collapse {
+  background: #35737A;
+}
+nav#navbar-main div.navbar-collapse ul.navbar-nav {
+  display: flex;
+  padding-block: 0.75em;
+  width: 100vw;
+  margin-inline: 0px;
+  padding-inline: calc(100% - 1600px);
+}
+nav#navbar-main div.navbar-collapse ul.navbar-nav li.nav-item {
+  list-style: none;
+  margin-right: 2em;
+}
+nav#navbar-main div.navbar-collapse ul.navbar-nav li.nav-item a {
+  color: #FFF;
+  text-decoration: none;
+  text-align: left;
+}
+nav#navbar-main div.navbar-collapse ul.navbar-nav li.nav-item a.nav-link--.is-active::before {
+  display: none !important;
+}
+
+footer.site-footer {
+  background: #414042;
+  padding-block: 1em;
+}
+footer.site-footer div.container {
+  width: 1600px;
+  margin-inline: auto;
+}
+footer.site-footer div.container div.site-footer__top {
+  display: flex;
+}
+footer.site-footer div.container div.site-footer__top section {
+  flex-grow: 1;
+  margin-right: 50px;
+}
+footer.site-footer div.container div.site-footer__top section div.block {
+  border: none;
+  padding-block: none;
+}
+footer.site-footer div.container div.site-footer__top section div.block li {
+  list-style: disc;
+  color: #BDBCBD;
+}
+footer.site-footer div.container div.site-footer__top section div.block li a {
+  text-decoration: underline 1px;
+  color: #BDBCBD;
+}
+footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement {
+  margin-block: 0px;
+  padding-block: 0px;
+  width: 50%;
+}
+footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement a {
+  margin-right: 10px;
+}
+
+#block-igis-footeracknoledgement div.content > div:nth-of-type(1) {
+  display: none;
+}
+
+.node--type-home.page-node-10 #block-igis-footeracknoledgement > div.content > div:nth-of-type(1) {
+  display: block;
+}
+
+.node--type-home.page-node-10 #block-igis-breadcrumbs {
+  display: none;
+}
+.node--type-home.page-node-10 #block-igis-page-title {
+  display: none;
+}
+.node--type-home.page-node-10 .card.clearfix.card-block.card-body {
+  border: none;
+  padding: 0px;
+}
+
+.layout-two-column {
+  display: flex;
+  flex-direction: row;
+}
+.layout-two-column div:nth-of-type(1) {
+  padding-right: 10px;
+  flex-basis: 50%;
+}
+.layout-two-column div:nth-of-type(2) {
+  padding-left: 10px;
+  flex-basis: 50%;
+}
+.layout-two-column .field--name-field-column-left {
+  background: lightcoral !important;
+}
+.layout-two-column .field--name-field-column-right {
+  background: lightblue !important;
+}
+
+.image-under-text {
+  position: relative;
+}
+.image-under-text .image {
+  /* position: absolute; */
+  top: 0px;
+  left: 0px;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.image-under-text .text {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-inline: 30px;
+  padding-block: 30px;
+  height: 400px;
+  overflow: scroll;
+  scrollbar-width: none; /* Hide the default scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide the default scrollbar for Internet Explorer and Edge */
+}
+.image-under-text .card-img-overlay {
+  padding-inline: 30px;
+  padding-block: 30px;
+}
+.image-under-text .card-img-overlay {
+  overflow: hidden;
+  color: #000;
+}
+
+.image-above-text .text {
+  padding-inline: 10px;
+  padding-block: 30px;
+}
+
+.color-under-text {
+  padding-inline: 30px;
+  padding-block: 30px;
+  background: #35737A;
+  color: #000;
+}
+
+.paragraph--type--layout-page-list div.item-body {
+  overflow: hidden;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 20px auto;
+}
+
+.paragraph--type--layout-page-list .list-group-item > list-inline > .item-heading > h3, h4, h5 {
+  text-decoration: underline;
+}
+
+.paragraph--type--layout-page-list .list-group-item {
+  background: white;
+  color: black;
+  animation: page-list-color-non-hover ease-in-out 0.25s;
+}
+
+.paragraph--type--layout-page-list .list-group-item:hover {
+  background: #35737A;
+  color: white;
+  animation: page-list-color-hover ease-in-out 0.25s;
+}
+
+@keyframes page-list-color-hover {
+  0% {
+    background: white;
+    color: black;
+  }
+  100% {
+    background: #35737A;
+    color: white;
+  }
+}
+@keyframes page-list-color-non-hover {
+  100% {
+    background: white;
+    color: black;
+  }
+  0% {
+    background: #35737A;
+    color: white;
+  }
+}
+.carousel-item > .background-layer {
+  padding-inline: 100px;
+  padding-block: 30px;
+  background: grey;
+}
+.carousel-item > .background-layer.color-scheme-red {
+  background: rgb(255, 87, 87);
+  color: white;
+}
+.carousel-item > .background-layer.color-scheme-blue {
+  background: #35737A;
+  color: white;
+}
+.carousel-item > .background-layer.color-scheme-yellow {
+  background: #b5c252;
+  color: white;
+}
+.carousel-item > .background-layer.color-scheme-green {
+  background: #357a47;
+  color: white;
+}
+
+.carousel-item .banner-body {
+  overflow: hidden;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  margin: 20px auto;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width: 5%;
+}
+
+.accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button {
+  background: var(--accordion-color-collapsed, #35737a);
+  color: #fff;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.accordion-item:has(.show) > h2.accordion-header > .accordion-button {
+  background: var(--accordion-color-expanded, #153243);
+  color: #fff;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.accordion-item > h2.accordion-header > .accordion-button:hover {
+  background: var(--accordion-color-hover, #284B63);
+  color: #fff;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+h2.accordion-header > .accordion-button::after {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-item {
+  border: 1px solid #2e6268;
+  border-right: 2px solid #2e6268;
+  border-bottom: 2px solid #2e6268;
+  margin-bottom: 0.25em;
+}
+
+/*# sourceMappingURL=style.css.map */

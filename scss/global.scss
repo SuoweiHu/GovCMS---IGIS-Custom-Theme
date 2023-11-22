@@ -1,0 +1,26 @@
+:root{
+    font-family: sans-serif;
+}
+
+
+// hyper-link / link
+:root{
+    --bs-link-color:       $link-color-global;
+    --bs-link-color-hover: $link-color-global-hover;
+}
+a, .link{
+    color: $link-color-global;
+    :hover{
+        color: $link-color-global-hover;
+    }
+}
+
+// page title
+:root{
+    --bb-h1-color: $page-title-h1-color;
+    --bb-h2-color: $page-title-h2-color;
+    --bb-h3-color: $page-title-h3-color;
+}
+* h1, .h1 {color: $page-title-h1-color;}
+* h2, .h1 {color: $page-title-h2-color;}
+* h3, .h1 {color: $page-title-h3-color;}

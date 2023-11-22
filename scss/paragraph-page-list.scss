@@ -1,0 +1,57 @@
+
+$pagelist-body-lines: 3;
+$pagelist-default-color-font: black;
+$pagelist-onhover-color-font:  white;
+$pagelist-default-color-background: white;
+$pagelist-onhover-color-background: #35737A;
+
+
+.paragraph--type--layout-page-list div.item-body{
+    overflow: hidden;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: $pagelist-body-lines;
+    -webkit-box-orient: vertical;
+    margin: 20px auto;
+}
+
+
+.paragraph--type--layout-page-list .list-group-item > list-inline > .item-heading > h3,h4,h5{
+    text-decoration: underline;
+}
+
+
+
+//hover coloring efffect
+.paragraph--type--layout-page-list .list-group-item{
+	background: $pagelist-default-color-background;
+	color: $pagelist-default-color-font;
+	animation: page-list-color-non-hover ease-in-out 0.25s;
+}
+.paragraph--type--layout-page-list .list-group-item:hover {
+	background: $pagelist-onhover-color-background;
+	color: $pagelist-onhover-color-font;
+	animation: page-list-color-hover ease-in-out 0.25s;
+}
+
+// animation for hover color effect
+@keyframes  page-list-color-hover {
+  0% {
+	background: $pagelist-default-color-background;
+	color: $pagelist-default-color-font;
+  }
+  100%   {
+    background: $pagelist-onhover-color-background;
+    color:  $pagelist-onhover-color-font;
+  }
+}
+@keyframes  page-list-color-non-hover {
+  100% {
+	background: $pagelist-default-color-background;
+	color: $pagelist-default-color-font;
+  }
+  0%   {
+    background: $pagelist-onhover-color-background;
+    color: $pagelist-onhover-color-font;
+  }
+}

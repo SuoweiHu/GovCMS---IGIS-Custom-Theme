@@ -1,0 +1,34 @@
+// Hide footer paragraph but keep the footer menu - on regular pages
+// Show all two - on home page
+
+#block-igis-footeracknoledgement {
+    div.content>div:nth-of-type(1) {
+        display: none;
+    }
+}
+.node--type-home.page-node-10 #block-igis-footeracknoledgement > div.content>div:nth-of-type(1) {
+    display: block;
+}
+
+
+
+
+.node--type-home.page-node-10 {
+
+    // Hide breadscrumbs
+    #block-igis-breadcrumbs {
+        display: none;
+    }
+
+    // Hide page title
+    #block-igis-page-title {
+        display: none;
+    }
+
+    // Remove border and padding for picture cards
+    .card.clearfix.card-block.card-body {
+        border: none;
+        padding: 0px;
+    }
+
+}
