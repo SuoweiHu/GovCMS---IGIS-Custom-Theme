@@ -1,0 +1,31 @@
+{#
+/**
+* @file
+* Theme override for a link to a file.
+*
+* Available variables:
+* - attributes: The HTML attributes for the containing element.
+* - link: A link to the file.
+* - icon: The icon image representing the file type.
+*
+* @see template_preprocess_file_link()
+*/
+#}
+{{ attach_library('bootstrap_barrio/file') }}
+
+
+<span{{ attributes }}>
+
+    <div class="file-icon d-block">
+        {{ icon }}
+    </div>
+    <div class="file-link d-inline-block text-truncate" style="min-width: 400px; max-width: 400px;">
+        <a href="{{file.uri.0.url}}" >{{file.filename.0.value}}</a>
+    </div>
+    <div class="file-type d-inline-block text-truncate" style="width: 130px;">
+        <i>{{ file.filemime.0.value }}</i>
+    </div>
+    <div class="file-size d-inline-block text-truncate" style="width: 100px;">
+        <i> {{ file_size }}</i>
+    </div>
+</span>
