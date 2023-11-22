@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "scss",
+            "type": "shell",
+            "command": "sass scss/style.scss css/style.css; ~/.composer/vendor/bin/drush cr > /dev/null 2>&1; return 0; exit 0;",
+            "args": [],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "clear": true,
+                "close": true,
+                "focus": true,
+              }
+        }
+    ]
+}
