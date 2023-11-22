@@ -294,4 +294,12 @@ h2.accordion-header > .accordion-button::after {
   margin-bottom: 0.25em;
 }
 
+span.file {
+  padding-left: 40px;
+  background-position: 0% 35%;
+}
+span.file div.file-link a {
+  transition: color ease-in-out 0.25s;
+}
+
 /*# sourceMappingURL=style.css.map */
