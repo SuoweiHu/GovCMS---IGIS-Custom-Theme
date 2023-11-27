@@ -14,13 +14,14 @@ span.file {
 	border-radius: var(--bs-border-radius);
 	padding-top: 5px;
 	border: 1px solid var(--bs-secondary);
-	margin-bottom: 5px
+	margin-bottom: 5px;
+    transition: background 0.25s ease-in-out;
 }
 .paragraph.paragraph--type--attachment-file.file:hover{
-	background: var(--bs-primary);
-}
+	background: var(--bs-primary);}
 .d-inline-block.text-truncate {
 	color: var(--bs-body-color);
+	transition: color 0.25s ease-in-out;
 }
 .paragraph.paragraph--type--attachment-file.file:hover .d-inline-block.text-truncate{
 	color:white !important;

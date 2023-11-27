@@ -291,6 +291,7 @@ span.file div.file-link a {
   padding-top: 5px;
   border: 1px solid var(--bs-secondary);
   margin-bottom: 5px;
+  transition: background 0.25s ease-in-out;
 }
 
 .paragraph.paragraph--type--attachment-file.file:hover {
@@ -299,6 +300,7 @@ span.file div.file-link a {
 
 .d-inline-block.text-truncate {
   color: var(--bs-body-color);
+  transition: color 0.25s ease-in-out;
 }
 
 .paragraph.paragraph--type--attachment-file.file:hover .d-inline-block.text-truncate {
