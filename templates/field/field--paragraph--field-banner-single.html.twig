@@ -43,9 +43,11 @@
 
         {% set item_title         = item.content["#paragraph"].field_banner_item_heading.0.value  %}
         {% set item_body          = item.content["#paragraph"].field_banner_item_body.0.value     %}
-        {% set item_bkg           = item.content["#paragraph"].field_background_color.0.value     %}
         {% set color_background   = item.content["#paragraph"].field_color_background.0.value     %}
         {% set color_foreground   = item.content["#paragraph"].field_color_foreground.0.value     %}
+        {% set image_background   = item.content["#paragraph"].field_image.0["#item"].parent.0.entity.uri.0.url     %}
+        {% set image_alt          = item.content["#paragraph"].field_image.0.alt                        %}
+        {% set image_url          = item.content["#paragraph"].field_image.0.parent.0.entity.uri.0.url  %}
 
         {# set the first banner to active by default #}
         {% if key == 0 %}
@@ -54,20 +56,30 @@
         {% else %}
         <div {{ item.attributes.addClass("carousel-item")}}>
         {% endif %}
-            {# ███████████████████████████████████████ #}
-            {# ███████████████████████████████████████ #}
-            <div class="background-layer color-scheme-{{item_bkg}}" style="background:{{color_background}};color:{{color_foreground}};">
-                <div class="container">
-                    <div class="row banner-title">
-                        <h4>{{ item_title }}</h4>
-                    </div>
-                    <div class="row banner-body">
-                        {{ item_body | striptags }}
+            {% if not image_url == null %}
+                <div class="background-layer " style="background:url({{image_url}}); color:{{color_foreground}};">
+                    <div class="container">
+                        <div class="row banner-title">
+                            <h4>{{ item_title }}</h4>
+                        </div>
+                        <div class="row banner-body">
+                            {{ item_body | striptags }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            {# ███████████████████████████████████████ #}
-            {# ███████████████████████████████████████ #}
+            {% else %}
+                <div class="background-layer " style="background:{{color_background}};color:{{color_foreground}};">
+                    <div class="container">
+                        <div class="row banner-title">
+                            <h4>{{ item_title }}</h4>
+                        </div>
+                        <div class="row banner-body">
+                            {{ item_body | striptags }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
         {% if key == 0 %}
         </div>
         {% else %}
