@@ -277,11 +277,32 @@ h2.accordion-header > .accordion-button::after {
 }
 
 span.file {
+  background-position: 5px calc(35% + 2px);
   padding-left: 40px;
-  background-position: 0% 35%;
+  padding-top: 5px;
+  margin-bottom: 5px;
 }
 span.file div.file-link a {
   transition: color ease-in-out 0.25s;
+}
+
+.paragraph.paragraph--type--attachment-file.file {
+  border-radius: var(--bs-border-radius);
+  padding-top: 5px;
+  border: 1px solid var(--bs-secondary);
+  margin-bottom: 5px;
+}
+
+.paragraph.paragraph--type--attachment-file.file:hover {
+  background: var(--bs-primary);
+}
+
+.d-inline-block.text-truncate {
+  color: var(--bs-body-color);
+}
+
+.paragraph.paragraph--type--attachment-file.file:hover .d-inline-block.text-truncate {
+  color: white !important;
 }
 
 /*# sourceMappingURL=style.css.map */

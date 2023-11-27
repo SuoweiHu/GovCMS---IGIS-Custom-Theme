@@ -14,18 +14,27 @@
 {{ attach_library('bootstrap_barrio/file') }}
 
 
-<span{{ attributes }}>
+{% set file_name          = file.filename.0.value                        %}
+{% set file_url           = file.uri.0.url                               %}
+{% set file_mime          = file.filemime.0.value                        %}
+{% set file_name_prefix   = file.filename.0.value | split('.')[:-1]|join %}
+{% set file_name_suffix   = file.filename.0.value | split('.')|last      %}
 
-    <div class="file-icon d-block">
-        {{ icon }}
-    </div>
-    <div class="file-link d-inline-block text-truncate" style="min-width: 400px; max-width: 400px;">
-        <a href="{{file.uri.0.url}}" >{{file.filename.0.value}}</a>
-    </div>
-    <div class="file-type d-inline-block text-truncate" style="width: 130px;">
-        <i>{{ file.filemime.0.value }}</i>
-    </div>
-    <div class="file-size d-inline-block text-truncate" style="width: 100px;">
-        <i> {{ file_size }}</i>
-    </div>
-</span>
+<div class="paragraph-file-attachment-link paragraph-file-attachment-link-item">
+    <a href="{{file_url}}" >
+        <span{{ attributes }}>
+            <div class="file-icon d-block">
+                {{ icon }}
+            </div>
+            <div class="file-link d-inline-block text-truncate" style="min-width: 400px; max-width: 400px;">
+                {{file_name_prefix}}
+            </div>
+            <div class="file-type d-inline-block text-truncate" style="width: 130px;">
+                {{ file_name_suffix }}
+            </div>
+            <div class="file-size d-inline-block text-truncate" style="width: 100px;">
+                {{ file_size }}
+            </div>
+        </span>
+    </a>
+</div>
