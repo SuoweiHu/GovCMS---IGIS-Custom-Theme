@@ -229,23 +229,8 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
 .carousel-item > .background-layer {
   padding-inline: 100px;
   padding-block: 30px;
-  background: grey;
-}
-.carousel-item > .background-layer.color-scheme-red {
-  background: rgb(255, 87, 87);
-  color: white;
-}
-.carousel-item > .background-layer.color-scheme-blue {
-  background: #35737A;
-  color: white;
-}
-.carousel-item > .background-layer.color-scheme-yellow {
-  background: #b5c252;
-  color: white;
-}
-.carousel-item > .background-layer.color-scheme-green {
-  background: #357a47;
-  color: white;
+  background: var(--bs-primary);
+  color: var(--bb-primary-text);
 }
 
 .carousel-item .banner-body {
