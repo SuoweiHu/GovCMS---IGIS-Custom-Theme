@@ -1,57 +1,69 @@
-
-$image-under-text-padding-inline:    30px;
-$image-under-text-padding-block:     30px;
+$image-under-text-padding-inline: 30px;
+$image-under-text-padding-block: 30px;
 $image-under-text-container-height: 400px;
-$image-above-text-padding-inline:    10px;
-$image-above-text-padding-block:     30px;
-$color-under-text-padding-block:     30px;
-$color-under-text-padding-inline:    30px;
-$color-under-text-default-color-background:#35737A;
-$color-under-text-default-color-foreground:#000;
+$image-above-text-padding-inline: 10px;
+$image-above-text-padding-block: 30px;
+$color-under-text-padding-block: 30px;
+$color-under-text-padding-inline: 30px;
+$color-under-text-default-color-background: #35737A;
+$color-under-text-default-color-foreground: #000;
 
 .image-under-text {
-	position: relative;
+    position: relative;
+
     .image {
         /* position: absolute; */
-        top:  0px;
+        top: 0px;
         left: 0px;
         height: $image-under-text-container-height;
         width: 100%;
         object-fit: cover;
         overflow: hidden;
     }
+
     .text {
         position: absolute;
-        top:  0px;
+        top: 0px;
         left: 0px;
         padding-inline: $image-under-text-padding-inline;
-        padding-block:  $image-under-text-padding-block;
-        height:         calc($image-under-text-container-height);
+        padding-block: $image-under-text-padding-block;
+        height: calc($image-under-text-container-height);
         // height:         calc($container-height - $padding-block);
         overflow: scroll;
-        scrollbar-width: none; /* Hide the default scrollbar for Firefox */
-        -ms-overflow-style: none; /* Hide the default scrollbar for Internet Explorer and Edge */
+        scrollbar-width: none;
+        /* Hide the default scrollbar for Firefox */
+        -ms-overflow-style: none;
+        /* Hide the default scrollbar for Internet Explorer and Edge */
     }
-    .card-img-overlay{
+
+    .card-img-overlay {
         padding-inline: $image-under-text-padding-inline;
-        padding-block:  $image-under-text-padding-block;
+        padding-block: $image-under-text-padding-block;
     }
+
     .card-img-overlay {
         overflow: hidden;
-        color:          $color-under-text-default-color-foreground;
+        color: $color-under-text-default-color-foreground;
     }
 }
 
 .image-above-text {
-    .text{
+    .text {
         padding-inline: $image-above-text-padding-inline;
-        padding-block:  $image-above-text-padding-block;
+        padding-block: $image-above-text-padding-block;
     }
 }
 
-.color-under-text{
+.color-under-text {
     padding-inline: $color-under-text-padding-inline;
-    padding-block:  $color-under-text-padding-block;
-    background:     $color-under-text-default-color-background;
-    color:          $color-under-text-default-color-foreground;
+    padding-block: $color-under-text-padding-block;
+    background: $color-under-text-default-color-background;
+    color: $color-under-text-default-color-foreground;
+}
+
+.paragraph-single-column-parallax {
+    background-attachment: fixed  !important;
+    background-position:   center !important;
+    background-repeat:  no-repeat !important;
+    background-size:       cover  !important;
 }
