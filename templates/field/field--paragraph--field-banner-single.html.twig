@@ -41,23 +41,38 @@
 
     {% for key,item in items %}
 
-        {% set item_title         = item.content["#paragraph"].field_banner_item_heading.0.value  %}
-        {% set item_body          = item.content["#paragraph"].field_banner_item_body.0.value     %}
-        {% set color_background   = item.content["#paragraph"].field_color_background.0.value     %}
-        {% set color_foreground   = item.content["#paragraph"].field_color_foreground.0.value     %}
+        {% set item_title         = item.content["#paragraph"].field_banner_item_heading.0.value                    %}
+        {% set item_body          = item.content["#paragraph"].field_banner_item_body.0.value                       %}
+        {% set color_background   = item.content["#paragraph"].field_color_background.0.value                       %}
+        {% set color_foreground   = item.content["#paragraph"].field_color_foreground.0.value                       %}
         {% set image_background   = item.content["#paragraph"].field_image.0["#item"].parent.0.entity.uri.0.url     %}
-        {% set image_alt          = item.content["#paragraph"].field_image.0.alt                        %}
-        {% set image_url          = item.content["#paragraph"].field_image.0.parent.0.entity.uri.0.url  %}
+        {% set image_alt          = item.content["#paragraph"].field_image.0.alt                                    %}
+        {% set image_url          = item.content["#paragraph"].field_image.0.parent.0.entity.uri.0.url              %}
+        {% set animation_speed    = element["#object"].field_animation_speed.0.value                                %}
+        {% set item_height        = element["#object"].field_height.0.value                                         %}
+
+        {% if animation_speed == null %}
+            {% set animation_style_string = "" %}
+        {% else %}
+            {% set animation_style_string = "transition: transform " ~ animation_speed ~ " ease-in-out;" %}
+        {% endif %}
+
+        {% if item_height == null %}
+            {% set item_height_string = "" %}
+        {% else %}
+            {% set item_height_string = "height:" ~ item_height ~ "px;" %}
+        {% endif %}
+
 
         {# set the first banner to active by default #}
         {% if key == 0 %}
-        <div {{ item.attributes.addClass("carousel-item").addClass("active") }}>
+        <div {{ item.attributes.addClass("carousel-item").addClass("active")}} style="{{animation_style_string}}">
         {# set the non-first banner to in-active by default #}
         {% else %}
-        <div {{ item.attributes.addClass("carousel-item")}}>
+        <div {{ item.attributes.addClass("carousel-item")}} style="{{animation_style_string}}">
         {% endif %}
             {% if not image_url == null %}
-                <div class="background-layer " style="background:url({{image_url}}); color:{{color_foreground}};">
+                <div class="background-layer " style="background:url({{image_url}}); color:{{color_foreground}};{{item_height_string}}">
                     <div class="container">
                         <div class="row banner-title">
                             <h4>{{ item_title }}</h4>
@@ -68,7 +83,7 @@
                     </div>
                 </div>
             {% else %}
-                <div class="background-layer " style="background:{{color_background}};color:{{color_foreground}};">
+                <div class="background-layer " style="background:{{color_background}};color:{{color_foreground}};{{item_height_string}}">
                     <div class="container">
                         <div class="row banner-title">
                             <h4>{{ item_title }}</h4>
