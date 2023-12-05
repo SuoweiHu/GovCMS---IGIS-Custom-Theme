@@ -1,107 +1,69 @@
-{#
-/**
- * @file
- * Default theme implementation to display a paragraph.
- *
- * Available variables:
- * - paragraph: Full paragraph entity.
- *   Only method names starting with "get", "has", or "is" and a few common
- *   methods such as "id", "label", and "bundle" are available. For example:
- *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
- *   - paragraph.id(): The paragraph ID.
- *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
- *   - paragraph.getOwnerId(): The user ID of the paragraph author.
- *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
- *   and methods for the paragraph object.
- * - content: All paragraph items. Use {{ content }} to print them all,
- *   or print a subset such as {{ content.field_example }}. Use
- *   {{ content|without('field_example') }} to temporarily suppress the printing
- *   of a given child element.
- * - attributes: HTML attributes for the containing element.
- *   The attributes.class element may contain one or more of the following
- *   classes:
- *   - paragraphs: The current template type (also known as a "theming hook").
- *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
- *     "Image" it would result in "paragraphs--type--image". Note that the machine
- *     name will often be in a short form of the human readable label.
- *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
- *     preview would result in: "paragraphs--view-mode--preview", and
- *     default: "paragraphs--view-mode--default".
- * - view_mode: View mode; for example, "preview" or "full".
- * - logged_in: Flag for authenticated user status. Will be true when the
- *   current user is a logged-in member.
- * - is_admin: Flag for admin user status. Will be true when the current user
- *   is an administrator.
- *
- * @see template_preprocess_paragraph()
- *
- * @ingroup themeable
- */
-#}
-{%
-  set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished'
-  ]
-%}
-
+{% set classes   = [ 'paragraph','paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
+{% set swap_mode = content.field_swrap_left_and_right[0]['#markup'] %}
 
 {# Retriving the right/left context (field context) #}
-{% set swap_mode = content.field_swrap_left_and_right[0]['#markup'] %}
 {% if swap_mode == "Enable Swap" %}
-    {% set right_background  = content.field_left_background.0["#context"]["value"]        %}
-    {% set right_foreground  = content.field_left_fore.0["#context"]["value"]              %}
-    {% set left_background   = content.field_right_backgorund.0["#context"]["value"]       %}
-    {% set left_foreground   = content.field_right_foreground.0["#context"]["value"]       %}
-    {% set right_image   = content.field_image_left                         %}
-    {% set left_image    = content.field_image_right                        %}
-    {% set right_content = content.field_column_left                        %}
-    {% set left_content  = content.field_column_right                       %}
-    {% set right_mode    = content.field_left_.0['#markup']                 %}
-    {% set left_mode     = content.field_right_mode.0['#markup']            %}
+    {% set right_background   = content.field_left_background.0["#context"]["value"]        %}
+    {% set right_foreground   = content.field_left_fore.0["#context"]["value"]              %}
+    {% set left_background    = content.field_right_backgorund.0["#context"]["value"]       %}
+    {% set left_foreground    = content.field_right_foreground.0["#context"]["value"]       %}
+    {% set right_image        = content.field_image_left                                    %}
+    {% set left_image         = content.field_image_right                                   %}
+    {% set right_content      = content.field_column_left                                   %}
+    {% set left_content       = content.field_column_right                                  %}
+    {% set right_mode         = content.field_left_.0['#markup']                            %}
+    {% set left_mode          = content.field_right_mode.0['#markup']                       %}
+    {% set left_image_URL     = left_image.0["#item"].parent.0.entity.uri.0.url             %}
+    {% set left_image_ALT     = left_image.0["#item"].parent.0.alt                          %}
+    {% set right_image_URL    = right_image.0["#item"].parent.0.entity.uri.0.url            %}
+    {% set right_image_ALT    = right_image.0["#item"].parent.0.alt                         %}
+    {% set force_right_height = content.field_two_column_left_height[0]["#markup"]          %}
+    {% set force_right_width  = content.field_two_column_left_width[0]["#markup"]           %}
+    {% set force_left_height  = content.field_two_column_right_height[0]["#markup"]         %}
+    {% set force_left_width   = content.field_two_column_right_width[0]["#markup"]          %}
 {% else %}
-    {% set left_background  = content.field_left_background.0["#context"]["value"]        %}
-    {% set left_foreground  = content.field_left_fore.0["#context"]["value"]              %}
-    {% set right_background = content.field_right_backgorund.0["#context"]["value"]       %}
-    {% set right_foreground = content.field_right_foreground.0["#context"]["value"]       %}
-    {% set left_image    = content.field_image_left                         %}
-    {% set right_image   = content.field_image_right                        %}
-    {% set left_content  = content.field_column_left                        %}
-    {% set right_content = content.field_column_right                       %}
-    {% set left_mode     = content.field_left_.0['#markup']                 %}
-    {% set right_mode    = content.field_right_mode.0['#markup']            %}
+    {% set left_background    = content.field_left_background.0["#context"]["value"]        %}
+    {% set left_foreground    = content.field_left_fore.0["#context"]["value"]              %}
+    {% set right_background   = content.field_right_backgorund.0["#context"]["value"]       %}
+    {% set right_foreground   = content.field_right_foreground.0["#context"]["value"]       %}
+    {% set left_image         = content.field_image_left                                    %}
+    {% set right_image        = content.field_image_right                                   %}
+    {% set left_content       = content.field_column_left                                   %}
+    {% set right_content      = content.field_column_right                                  %}
+    {% set left_mode          = content.field_left_.0['#markup']                            %}
+    {% set right_mode         = content.field_right_mode.0['#markup']                       %}
+    {% set left_image_URL     = left_image.0["#item"].parent.0.entity.uri.0.url             %}
+    {% set left_image_ALT     = left_image.0["#item"].parent.0.alt                          %}
+    {% set right_image_URL    = right_image.0["#item"].parent.0.entity.uri.0.url            %}
+    {% set right_image_ALT    = right_image.0["#item"].parent.0.alt                         %}
+    {% set force_left_height  = content.field_two_column_left_height[0]["#markup"]          %}
+    {% set force_left_width   = content.field_two_column_left_width[0]["#markup"]           %}
+    {% set force_right_height = content.field_two_column_right_height[0]["#markup"]         %}
+    {% set force_right_width  = content.field_two_column_right_width[0]["#markup"]          %}
 {% endif %}
-
-{# Getting the image's URL #}
-{% set left_image_URL    = left_image.0["#item"].parent.0.entity.uri.0.url  %}
-{% set left_image_ALT    = left_image.0["#item"].parent.0.alt               %}
-{% set right_image_URL   = right_image.0["#item"].parent.0.entity.uri.0.url %}
-{% set right_image_ALT   = right_image.0["#item"].parent.0.alt              %}
 
 <div {{ attributes.addClass(classes).addClass("layout-two-column").addClass("layout-two-column-swap-off").addClass("row")}}>
         <div class="layout-two-column-left col-6">
             {% if left_mode=="Image + Text" %}
-                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                     <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                     {{left_content}}
                 </div></div>
             {% elseif left_mode=="Text + Image" %}
-                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                     {{left_content}}
                     <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                 </div></div>
             {% elseif left_mode=="Image Only" %}
-                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                     <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                 </div></div>
             {% elseif left_mode=="Text Only" %}
-                <div class="card" style="background:{{left_background}};"> <div class="card-body" style="color:{{left_foreground}};">
+                <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                     {{left_content}}
                 </div></div>
             {% elseif left_mode=="Image below Image" %}
-                <div class="card" style="background:{{left_background}};"> <div class="card-body p-0">
+                <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body p-0">
                     <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                     <div class="card-img-overlay" style="color:{{left_foreground}};">
                         {{left_content}}
@@ -111,25 +73,25 @@
         </div>
         <div class="layout-two-column-right col-6">
             {% if right_mode=="Image + Text" %}
-                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                     <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     {{right_content}}
                 </div></div>
             {% elseif right_mode=="Text + Image" %}
-                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                     {{right_content}}
                     <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                 </div></div>
             {% elseif right_mode=="Image Only" %}
-                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                     <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                 </div></div>
             {% elseif right_mode=="Text Only" %}
-                <div class="card" style="background:{{right_background}};"> <div class="card-body" style="color:{{right_foreground}};">
+                <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                     {{right_content}}
                 </div></div>
             {% elseif right_mode=="Image below Image" %}
-                <div class="card" style="background:{{right_background}};"> <div class="card-body p-0">
+                <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body p-0">
                     <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     <div class="card-img-overlay" style="color:{{right_foreground}};">
                         {{right_content}}
