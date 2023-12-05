@@ -276,6 +276,11 @@ h2.accordion-header > .accordion-button::after {
   margin-bottom: 0.25em;
 }
 
+.accordion-item > div.accordion-collapse {
+  -webkit-transition-duration: var(--accordion-animation-time, 0.35s) !important;
+  transition-duration: var(--accordion-animation-time, 0.35s) !important;
+}
+
 span.file {
   background-position: 5px calc(35% + 2px);
   padding-left: 40px;

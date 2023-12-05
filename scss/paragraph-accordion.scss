@@ -1,5 +1,6 @@
 
 $accordion-inbetween-spacing:                  0.25em;
+$accordion-transition-animation-speed:         0.35s;
 $accordion-color-header-background-expanded:  #153243;
 $accordion-color-header-foreground-expanded:  #fff;
 $accordion-color-header-background-collapsed: #35737a;
@@ -7,14 +8,6 @@ $accordion-color-header-foreground-collapsed: #fff;
 $accordion-color-header-background-hover:     #284B63;
 $accordion-color-header-foreground-hover:     #fff;
 $accordion-color-border:                      #2e6268;
-
-
-
-// .accordion-single {
-    // --accordion-color-expanded  : $accordion-color-header-background-expanded;
-    // --accordion-color-collapsed : $accordion-color-header-background-collapsed;
-    // --accordion-color-hover     : $accordion-color-header-background-hover;
-// }
 
 .accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button  {
 	background: var(--accordion-color-collapsed,$accordion-color-header-background-collapsed);
@@ -40,4 +33,8 @@ h2.accordion-header > .accordion-button::after {
 	border-right:  2px solid $accordion-color-border;
 	border-bottom: 2px solid $accordion-color-border;
 	margin-bottom: $accordion-inbetween-spacing;
+}
+.accordion-item > div.accordion-collapse{
+    -webkit-transition-duration:  var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
+    transition-duration:          var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
 }

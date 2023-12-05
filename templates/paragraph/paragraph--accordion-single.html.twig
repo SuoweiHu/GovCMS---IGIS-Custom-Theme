@@ -39,65 +39,42 @@
 */
 #}
 
-{% set classes                = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
-{% set uniqueId               = random()                                                     %}
-{% set body                   = content.field_accordion_item_body[0]["#text"]                %}
-{% set heading                = content.field_accordion_item_heading[0]["#context"]["value"] %}
-{% set header_color_expanded  = content.field_header_color_expanded[0]["#context"]["value"]  %}
-{% set header_color_collapsed = content.field_header_color_collapsed[0]["#context"]["value"] %}
-{% set header_color_hover     = content.field_header_color_hover[0]["#context"]["value"]     %}
+{% set classes                 = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
+{% set uniqueId                = random()                                                     %}
+{% set body                    = content.field_accordion_item_body[0]["#text"]                %}
+{% set heading                 = content.field_accordion_item_heading[0]["#context"]["value"] %}
+{% set header_color_expanded   = content.field_header_color_expanded[0]["#context"]["value"]  %}
+{% set header_color_collapsed  = content.field_header_color_collapsed[0]["#context"]["value"] %}
+{% set header_color_hover      = content.field_header_color_hover[0]["#context"]["value"]     %}
+{% set header_default_state    = content.field_default_[0]["#markup"]                         %}
+{% set header_anim_time        = content.field_expand_collapse_speed[0]["#markup"]            %}
 
-{% if not header_color_expanded == null %}
-    {% set str_header_color_expanded = "--accordion-color-expanded:#{header_color_expanded};" %}
-{% else %}
-    {% set str_header_color_expanded = "" %}
-{% endif %}
+{% if not header_color_expanded == null    %}{% set str_header_color_expanded  = "--accordion-color-expanded:#{header_color_expanded};"        %}
+{% else                                    %}{% set str_header_color_expanded  = ""                                                            %}{% endif %}
+{% if not header_color_collapsed == null   %}{% set str_header_color_collapsed = "--accordion-color-collapsed:#{header_color_collapsed};"      %}
+{% else                                    %}{% set str_header_color_collapsed = ""                                                            %}{% endif %}
+{% if not header_color_hover == null       %}{% set str_header_color_hover     = "--accordion-color-hover:#{header_color_hover};"              %}
+{% else                                    %}{% set str_header_color_hover     = ""                                                            %}{% endif %}
+{% if header_default_state ==  "Collapsed" %}{% set str_expanded_collapsed     = ""                                                            %}
+{% else                                    %}{% set str_expanded_collapsed     = "show"                                                        %}{% endif %}
+{% if not header_anim_time == null         %}{% set str_animation_time         = "--accordion-animation-time:#{header_anim_time}s;"            %}
+{% else                                    %}{% set str_animation_time         = ""                                                            %}{% endif %}
 
-{% if not header_color_collapsed == null %}
-    {% set str_header_color_collapsed = "--accordion-color-collapsed:#{header_color_collapsed};" %}
-{% else %}
-    {% set str_header_color_collapsed = "" %}
-{% endif %}
-
-{% if not header_color_hover == null %}
-    {% set str_header_color_hover = "--accordion-color-hover:#{header_color_hover};" %}
-{% else %}
-    {% set str_header_color_hover = "" %}
-{% endif %}
-
-{% if content.field_default_[0]["#markup"] ==  "Collapsed" %}
-    <div {{ attributes.addClass(classes).addClass("accordion").addClass("accordion-single")}}>
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-{{uniqueId}}"
-                    aria-expanded="true" style="{{str_header_color_expanded}}{{str_header_color_collapsed}}{{str_header_color_hover}}">
-                    {{ heading }}
-                </button>
-            </h2>
-            <div id="accordion-{{uniqueId}}" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                <div class="accordion-body">
-                    {{ body | raw }}
-                </div>
+<div {{ attributes.addClass(classes).addClass("accordion").addClass("accordion-single")}}>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-{{uniqueId}}"
+                aria-expanded="true" style="{{str_header_color_expanded}}{{str_header_color_collapsed}}{{str_header_color_hover}}">
+                {{ heading }}
+            </button>
+        </h2>
+        <div id="accordion-{{uniqueId}}" class="accordion-collapse collapse {{str_expanded_collapsed}}" aria-labelledby="headingOne" style="{{str_animation_time}}">
+            <div class="accordion-body">
+                {{ body | raw }}
             </div>
         </div>
     </div>
-{% else %}
-    <div {{ attributes.addClass(classes).addClass("accordion").addClass("accordion-single")}}>
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-{{uniqueId}}"
-                    aria-expanded="true" style="{{str_header_color_expanded}}{{str_header_color_collapsed}}{{str_header_color_hover}}">
-                    {{ heading }}
-                </button>
-            </h2>
-            <div id="accordion-{{uniqueId}}" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                <div class="accordion-body">
-                    {{ body | raw }}
-                </div>
-            </div>
-        </div>
-    </div>
-{% endif %}
+</div>
 
 
 
