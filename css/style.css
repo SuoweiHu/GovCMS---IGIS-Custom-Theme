@@ -312,4 +312,52 @@ span.file div.file-link a {
   color: white !important;
 }
 
+.paragraph--type--read-more .read-more-summary {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.paragraph--type--read-more .read-more-summary div.collapse:not(.show) {
+  line-height: 1.5;
+  height: calc(var(--read-moreshow-lines) * 1.5em) !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--read-moreshow-lines);
+  -webkit-box-orient: vertical;
+}
+.paragraph--type--read-more .read-more-summary div.collapsing {
+  line-height: 1.5;
+  min-height: calc(var(--read-moreshow-lines) * 1.5em) !important;
+}
+.paragraph--type--read-more .read-more-summary a.collapsed:after {
+  content: "+ Read More";
+}
+.paragraph--type--read-more .read-more-summary a:not(.collapsed):after {
+  content: "- Read Less";
+}
+
+.read-more-summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.read-more-summary a {
+  margin-top: 10px;
+  text-align: right;
+  color: white;
+  background: var(--bs-link-color);
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-link-color);
+  border-radius: var(--bs-border-radius);
+  padding-block: 5px;
+  padding-inline: 10px;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.read-more-summary a:hover {
+  background: var(--bs-link-hover-color);
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-link-hover-color);
+}
+
 /*# sourceMappingURL=style.css.map */
