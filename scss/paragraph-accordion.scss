@@ -38,3 +38,8 @@ h2.accordion-header > .accordion-button::after {
     -webkit-transition-duration:  var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
     transition-duration:          var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
 }
+.accordion-item > div.accordion-collapse.show{
+    -webkit-transition-duration:  var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
+    transition-duration:          var(--accordion-animation-time,$accordion-transition-animation-speed) !important;
+}
+

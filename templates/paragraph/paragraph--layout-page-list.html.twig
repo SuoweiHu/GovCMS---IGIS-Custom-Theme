@@ -1,22 +1,28 @@
-{%
-    set classes = [
-      'paragraph',
-      'paragraph--type--' ~ paragraph.bundle|clean_class,
-      view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-      not paragraph.isPublished() ? 'paragraph--unpublished'
-    ]
-%}
-
-{% set page_list_heading = content.field_page_list_heading %}
-{% set page_list_pages   = content.field_page_list_        %}
-
+{% set classes           = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
+{% set page_list_heading = content.field_page_list_heading                     %}
+{% set page_list_pages   = content.field_page_list_                            %}
+{% set page_list_mode    = content.field_page_list_display_mode[0]["#markup"]  %}
 
 {{ attach_library('bootstrap_barrio/file') }}
-<div {{ attributes.addClass(classes) }}>
-    <h2  class="page-list-title">
-        {{ page_list_heading }}
-    </h2>
-    <div class="page-list-items list-group">
-        {{ page_list_pages }}
+
+{% if page_list_mode == "List View" %}
+    <div {{ attributes.addClass(classes) }}>
+        <h2  class="page-list-title">
+            {{ page_list_heading }}
+        </h2>
+        <div class="page-list-items list-group page-list-list-view">
+            {{ page_list_pages }}
+        </div>
     </div>
-</div>
+{% elseif page_list_mode == "Card View" %}
+
+    <div {{ attributes.addClass(classes) }}>
+        <h2  class="page-list-title">
+            {{ page_list_heading }}
+        </h2>
+        <div class="page-list-items list-group page-list-card-view">
+            {{ page_list_pages }}
+        </div>
+    </div>
+{% endif %}
+
