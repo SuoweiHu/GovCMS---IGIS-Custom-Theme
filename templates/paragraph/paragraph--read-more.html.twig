@@ -6,11 +6,8 @@
 {% set readmore_default_lines      = content.field_read_more_number_of_lines["#items"][0].value        %}
 {% set readmore_uniqueId           = random()                                                          %}
 {% set readmore_width              = content.field_read_more_width[0]["#markup"]                       %}
-{# set readmore_body_summary       = content.field_read_more_body["#items"][0].summary                 #}
 {% if not readmore_width == null %}{% set str_readmore_width = "width:#{readmore_width}px;" %}
 {% else                          %}{% set str_readmore_width = ""                                      %}{% endif %}
-
-{{dump(   str_readmore_width  )}}
 
 {% block paragraph %}
 	<div{{attributes.addClass(classes).addClass(container)}} style="{{str_readmore_width}}">
@@ -18,7 +15,6 @@
 			<div class="col-md-12">
 				<div class="read-more-summary">
 					<div class="collapse" id="readmore-collapse-{{readmore_uniqueId}}" style="--read-moreshow-lines:{{readmore_default_lines}};">
-						{# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor maximus laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Suspendisse venenatis sollicitudin erat in gravida. Sed eget nisl tristique, commodo lectus sit amet, vulputate sem. Cras porttitor lorem ipsum, sit amet iaculis massa feugiat vitae. Curabitur sapien odio, ullamcorper tincidunt interdum vitae, vestibulum eu neque. Nam leo massa, fringilla eget mauris feugiat, auctor suscipit justo. #}
                         {{readmore_body_value|raw}}
 					</div>
 					<a class="collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#readmore-collapse-{{readmore_uniqueId}}" href="#readmore-collapse-{{readmore_uniqueId}}" aria-expanded="false" aria-controls="readmore-collapse-{{readmore_uniqueId}}"></a>
