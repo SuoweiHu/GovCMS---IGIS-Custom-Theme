@@ -1,5 +1,18 @@
-{% set classes   = [ 'paragraph','paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
-{% set swap_mode = content.field_swrap_left_and_right[0]['#markup'] %}
+{% set classes     = [ 'paragraph','paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
+{% set swap_mode   = content.field_swrap_left_and_right[0]['#markup']                                                                                                                                         %}
+{% set divide_mode = content.field_two_column_divide_option.0["#markup"]                                                                                                                                      %}
+{% if     divide_mode == "3-9" %}
+    {% set str_divide_mode_left  = "col-lg-3" %}
+    {% set str_divide_mode_right = "col-lg-9" %}
+{% elseif divide_mode == "6-6" %}
+    {% set str_divide_mode_left  = "col-lg-6" %}
+    {% set str_divide_mode_right = "col-lg-6" %}
+{% elseif divide_mode == "9-3" %}
+    {% set str_divide_mode_left  = "col-lg-9" %}
+    {% set str_divide_mode_right = "col-lg-3" %}
+{% endif %}
+
+
 
 {# Retriving the right/left context (field context) #}
 {% if swap_mode == "Enable Swap" %}
@@ -45,27 +58,27 @@
 
 {% block paragraph %}
     <div {{ attributes.addClass(classes).addClass("layout-two-column").addClass("layout-two-column-swap-off").addClass("row")}}>
-            <div class="layout-two-column-left col-6">
+            <div class="layout-two-column-left col col-12 {{str_divide_mode_left}}">
                 {% if left_mode=="Image + Text" %}
-                    <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
+                    <div class="card mode-image-text" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                         <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                         {{left_content}}
                     </div></div>
                 {% elseif left_mode=="Text + Image" %}
-                    <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
+                    <div class="card mode-text-image" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                         {{left_content}}
                         <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                     </div></div>
                 {% elseif left_mode=="Image Only" %}
-                    <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
+                    <div class="card mode-image-only" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                         <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                     </div></div>
                 {% elseif left_mode=="Text Only" %}
-                    <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
+                    <div class="card mode-text-only" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body" style="color:{{left_foreground}};">
                         {{left_content}}
                     </div></div>
-                {% elseif left_mode=="Image below Image" %}
-                    <div class="card" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body p-0">
+                {% elseif left_mode=="Text above Image" %}
+                    <div class="card mode-text-above-image" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body p-0">
                         <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
                         <div class="card-img-overlay" style="color:{{left_foreground}};">
                             {{left_content}}
@@ -73,31 +86,31 @@
                     </div></div>
                 {% endif %}
             </div>
-            <div class="layout-two-column-right col-6">
+            <div class="layout-two-column-right col col-12 {{str_divide_mode_right}}">
                 {% if right_mode=="Image + Text" %}
-                    <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
+                    <div class="card mode-image-text" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                         <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                         {{right_content}}
                     </div></div>
                 {% elseif right_mode=="Text + Image" %}
-                    <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
+                    <div class="card mode-text-image" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                         {{right_content}}
                         <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     </div></div>
                 {% elseif right_mode=="Image Only" %}
-                    <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
+                    <div class="card mode-image-only" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                         <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     </div></div>
                 {% elseif right_mode=="Text Only" %}
-                    <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
+                    <div class="card mode-text-only" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body" style="color:{{right_foreground}};">
                         {{right_content}}
                     </div></div>
-                {% elseif right_mode=="Image below Image" %}
-                    <div class="card" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body p-0">
-                        <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
+                {% elseif right_mode=="Text above Image" %}
+                    <div class="card mode-text-above-image" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body p-0">
                         <div class="card-img-overlay" style="color:{{right_foreground}};">
                             {{right_content}}
                         </div>
+                        <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     </div></div>
                 {% endif %}
             </div>

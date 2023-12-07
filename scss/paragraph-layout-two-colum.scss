@@ -28,4 +28,26 @@
             }
         }
     }
+    .card.mode-text-above-image{
+        .card-body{
+            height: fit-content;
+            min-height: fit-content;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            div.card-img-overlay{
+                height: fit-content;
+                min-height: 100%;
+                z-index: 999
+            }
+        }
+    }
+}
+
+@media (max-width:  960px){
+	.paragraph--type--layout-two-column .layout-two-column-left{
+		margin-bottom: 20px;
+	}
 }
