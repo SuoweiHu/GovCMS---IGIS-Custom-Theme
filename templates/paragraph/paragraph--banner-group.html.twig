@@ -1,23 +1,23 @@
 {% set classes  = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
 {% set uniqueId = random() %}
 
+{% block paragraph %}
+    <div id="carouselBanner-{{uniqueId}}" {{ attributes.addClass(classes).addClass("carousel").addClass("slide").addClass("border rounded")}}>
+        <!-- Container for the carousel items -->
+        <div class="carousel-inner">
+            {{content.field_banner_single}}
+        </div>
 
-
-<div id="carouselBanner-{{uniqueId}}" {{ attributes.addClass(classes).addClass("carousel").addClass("slide").addClass("border rounded")}}>
-    <!-- Container for the carousel items -->
-    <div class="carousel-inner">
-        {{content.field_banner_single}}
+        <!-- The buttons that will toggle the banner -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner-{{uniqueId}}"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner-{{uniqueId}}"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-
-    <!-- The buttons that will toggle the banner -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner-{{uniqueId}}"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner-{{uniqueId}}"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+{% endblock paragraph %}

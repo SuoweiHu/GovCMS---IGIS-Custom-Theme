@@ -7,32 +7,35 @@
 {% set image_height      = content.field_image_height[0]["#markup"]                %}
 {% set image_url         = image.0["#item"].parent.0.entity.uri.0.url              %}
 
-{% if option == "Image above text (no overlay)"  %}
-    <div {{ attributes.addClass(classes).addClass("image-above-text").addClass("paragraph-single-column-layout-container").addClass("card") }}  style="height:{{image_height}}px;">
-        <div class="image">{{image}}   </div>
-        <div class="text" style="background: {{color_background}}; color: {{color_foreground}}" >{{body|raw}}</div>
-    </div>
-{% elseif option == "Image under text (overlay, no parallax)" %}
-    <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}}px;">
-        {{image}}
-        <div class="card-img-overlay" style="color: {{color_foreground}}">
-            {{body|raw}}
+{% block paragraph %}
+    {% if option == "Image above text (no overlay)"  %}
+        <div {{ attributes.addClass(classes).addClass("image-above-text").addClass("paragraph-single-column-layout-container").addClass("card") }}  style="height:{{image_height}}px;">
+            <div class="image">{{image}}   </div>
+            <div class="text" style="background: {{color_background}}; color: {{color_foreground}}" >{{body|raw}}</div>
         </div>
-    </div>
-{% elseif option == "Color under text (overlay)" %}
-    {% if color_background == null and color_foreground == null  %}
-        <div {{ attributes.addClass(classes).addClass("card").addClass("color-under-text").addClass("paragraph-single-column-layout-container") }}  style="height:{{image_height}}px;">
-            {{body|raw}}
+    {% elseif option == "Image under text (overlay, no parallax)" %}
+        <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}}px;">
+            {{image}}
+            <div class="card-img-overlay" style="color: {{color_foreground}}">
+                {{body|raw}}
+            </div>
         </div>
-    {% else %}
-        <div class="color-under-text" style="background: {{color_background}}; color: {{color_foreground}}">
-            {{body|raw}}
+    {% elseif option == "Color under text (overlay)" %}
+        {% if color_background == null and color_foreground == null  %}
+            <div {{ attributes.addClass(classes).addClass("card").addClass("color-under-text").addClass("paragraph-single-column-layout-container") }}  style="height:{{image_height}}px;">
+                {{body|raw}}
+            </div>
+        {% else %}
+            <div class="color-under-text" style="background: {{color_background}}; color: {{color_foreground}}">
+                {{body|raw}}
+            </div>
+        {% endif %}
+    {% elseif option == "Image under text (overlay, parallax)" %}
+        <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container").addClass("paragraph-single-column-parallax")}} style="height:{{image_height}}px; background: url({{image_url}});">
+            <div class="card-img-overlay" style="color: {{color_foreground}};">
+                {{body|raw}}
+            </div>
         </div>
     {% endif %}
-{% elseif option == "Image under text (overlay, parallax)" %}
-    <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container").addClass("paragraph-single-column-parallax")}} style="height:{{image_height}}px; background: url({{image_url}});">
-        <div class="card-img-overlay" style="color: {{color_foreground}};">
-            {{body|raw}}
-        </div>
-    </div>
-{% endif %}
+{% endblock paragraph %}
+

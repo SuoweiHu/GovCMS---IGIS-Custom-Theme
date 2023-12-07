@@ -1,12 +1,4 @@
-{%
-    set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished'
-    ]
-%}
-
+{% set classes   = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
 {# set fid       = content.field_attachment_file[0]["#file"].fid.0.value      #}   {# fid      {{dump(fid)}}                                                    #}
 {# set uuid      = content.field_attachment_file[0]["#file"].uuid.0.value     #}   {# uuid     {{dump(uuid)}}                                                   #}
 {# set langcode  = content.field_attachment_file[0]["#file"].langcode.0.value #}   {# langcode {{dump(langcode)}}                                               #}
@@ -20,6 +12,8 @@
 {# set changed   = content.field_attachment_file[0]["#file"].changed.0.value  #}   {# changed  {{dump(changed)}}                                                #}
 {% set filetype  = content.field_attachment_file[0]["#file"].filemime.value   %}
 
-<div {{ attributes.addClass(classes).addClass("file").addClass("file-"~filetype|clean_class) }}>
-    {{content}}
-</div>
+{% block paragraph %}
+    <div {{ attributes.addClass(classes).addClass("file").addClass("file-"~filetype|clean_class) }}>
+        {{content}}
+    </div>
+{% endblock paragraph %}

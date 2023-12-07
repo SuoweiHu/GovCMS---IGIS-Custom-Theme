@@ -1,1 +1,3 @@
-<div {{attributes.addClass("spacer")}} style="height: 100px; height: {{content.field_spacer_height.0["#context"]["value"]}}px;"></div>
+{% block paragraph %}
+    <div {{attributes.addClass("spacer")}} style="height: 100px; height: {{content.field_spacer_height.0["#context"]["value"]}}px;"></div>
+{% endblock paragraph %}

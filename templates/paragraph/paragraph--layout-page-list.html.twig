@@ -5,24 +5,27 @@
 
 {{ attach_library('bootstrap_barrio/file') }}
 
-{% if page_list_mode == "List View" %}
-    <div {{ attributes.addClass(classes) }}>
-        <h2  class="page-list-title">
-            {{ page_list_heading }}
-        </h2>
-        <div class="page-list-items list-group page-list-list-view">
-            {{ page_list_pages }}
+{% block paragraph %}
+    {% if page_list_mode == "List View" %}
+        <div {{ attributes.addClass(classes) }}>
+            <h2  class="page-list-title">
+                {{ page_list_heading }}
+            </h2>
+            <div class="page-list-items list-group page-list-list-view">
+                {{ page_list_pages }}
+            </div>
         </div>
-    </div>
-{% elseif page_list_mode == "Card View" %}
+    {% elseif page_list_mode == "Card View" %}
 
-    <div {{ attributes.addClass(classes) }}>
-        <h2  class="page-list-title">
-            {{ page_list_heading }}
-        </h2>
-        <div class="page-list-items list-group page-list-card-view">
-            {{ page_list_pages }}
+        <div {{ attributes.addClass(classes) }}>
+            <h2  class="page-list-title">
+                {{ page_list_heading }}
+            </h2>
+            <div class="page-list-items list-group page-list-card-view">
+                {{ page_list_pages }}
+            </div>
         </div>
-    </div>
-{% endif %}
+    {% endif %}
+{% endblock paragraph %}
+
 

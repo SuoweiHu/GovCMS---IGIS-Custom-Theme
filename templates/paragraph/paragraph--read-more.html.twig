@@ -6,8 +6,8 @@
 {% set readmore_default_lines      = content.field_read_more_number_of_lines["#items"][0].value        %}
 {% set readmore_uniqueId           = random()                                                          %}
 {% set readmore_width              = content.field_read_more_width[0]["#markup"]                       %}
-{% if not readmore_width == null %}{% set str_readmore_width = "width:#{readmore_width}px;" %}
-{% else                          %}{% set str_readmore_width = ""                                      %}{% endif %}
+{% if not readmore_width == null   %}{% set str_readmore_width = "width:#{readmore_width}px;"            %}
+{% else                            %}{% set str_readmore_width = ""                                      %}{% endif %}
 
 {% block paragraph %}
 	<div{{attributes.addClass(classes).addClass(container)}} style="{{str_readmore_width}}">

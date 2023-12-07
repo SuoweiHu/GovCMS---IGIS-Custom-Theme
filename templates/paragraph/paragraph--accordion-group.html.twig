@@ -1,28 +1,31 @@
 {% set uniqueId                = random()                                                     %}
 {% set classes                 = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
-<div {{ attributes.addClass(classes)}} id="accordion-group-{{uniqueId}}">
-    {{content}}
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var activeCollapse = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show");
-        activeCollapse.forEach(function(collapse) {
-            collapse.classList.remove("show");
-        });
-        var buttons = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-button");
-        buttons.forEach(function(button) {
-            // button.addEventListener("click", function() {
-            //     var activeCollapse = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show");
-            //     activeCollapse.forEach(function(collapse) {
-            //         collapse.classList.remove("show");
-            //     });
-            // });
-            button.addEventListener("click", function() {
-                var collapseElementList = [].slice.call(document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show"));
-                var collapseList = collapseElementList.map(function (collapseEl) {
-                return new bootstrap.Collapse(collapseEl)
-                })
+
+{% block paragraph %}
+    <div {{ attributes.addClass(classes)}} id="accordion-group-{{uniqueId}}">
+        {{content}}
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var activeCollapse = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show");
+            activeCollapse.forEach(function(collapse) {
+                collapse.classList.remove("show");
+            });
+            var buttons = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-button");
+            buttons.forEach(function(button) {
+                // button.addEventListener("click", function() {
+                //     var activeCollapse = document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show");
+                //     activeCollapse.forEach(function(collapse) {
+                //         collapse.classList.remove("show");
+                //     });
+                // });
+                button.addEventListener("click", function() {
+                    var collapseElementList = [].slice.call(document.querySelectorAll("#accordion-group-{{uniqueId}} .accordion-collapse.collapse.show"));
+                    var collapseList = collapseElementList.map(function (collapseEl) {
+                    return new bootstrap.Collapse(collapseEl)
+                    })
+                });
             });
         });
-    });
-</script>
+    </script>
+{% endblock paragraph %}
