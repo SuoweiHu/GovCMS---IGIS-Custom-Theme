@@ -1,24 +1,28 @@
 span.file {
-	// background-position: 0% 35%;
-    div.file-link a{
-        transition: color ease-in-out 0.25s;
-    }
-	background-position: 5px calc(35% + 2px);
-    padding-left: 40px;
-    padding-top:   5px;
-	margin-bottom: 5px;
+    div.file-link a      { transition: color ease-in-out 0.25s; }
+    div.file-link        { height: 100%;                        }
+    div.file-type        { height: 100%;                        }
+    div.file-size        { height: 100%;                        }
+    div.file-type-size   { width:  200px;                       }
+    background-position: 5px calc(35% + 2px);
+    padding-left:        40px;
+    padding-right:       20px;
+    padding-top:         5px;
+	margin-bottom:       5px;
 }
 
 
 .paragraph.paragraph--type--attachment-file.file{
-	border-radius: var(--bs-border-radius);
-	padding-top: 5px;
-	border: 1px solid var(--bs-secondary);
-	margin-bottom: 5px;
-    transition: background 0.25s ease-in-out;
+	border-radius:     var(--bs-border-radius);
+	padding-top:       10px;
+	padding-bottom:    0px;
+	margin-bottom:     0px;
+    transition:        background 0.25s ease-in-out;
+    min-height:        12px;
 }
 .paragraph.paragraph--type--attachment-file.file:hover{
-	background: var(--bs-primary);}
+	background: var(--bs-primary);
+}
 .d-inline-block.text-truncate {
 	color: var(--bs-body-color);
 	transition: color 0.25s ease-in-out;
@@ -27,4 +31,39 @@ span.file {
 	color:white !important;
 }
 
+.paragraph--type--attachment-file {
+	width: 100%;
+}
 
+.paragraph-file-attachment-link > a > span.file{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	padding-bottom: 6px;
+}
+.paragraph-file-attachment-link > a > span.file div.file-type-size{
+	flex-grow: 1;
+	text-align: right;
+	align-self: flex-end;
+	justify-self: flex-end;
+}
+
+
+.paragraph-file-attachment-link-item > a {
+	text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .paragraph-file-attachment-link > a > span.file div.file-type-size{
+        display: none !important;
+    }
+    .paragraph-file-attachment-link > a > span.file div.file-link{
+        text-align: left;
+        flex-grow: 1;
+    }
+}
+
+.paragraph.paragraph--type--attachment-file.paragraph--view-mode--default.file:not(:hover) {
+	background: #e8e8e8;
+}

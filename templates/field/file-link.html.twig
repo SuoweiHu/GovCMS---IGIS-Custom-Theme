@@ -26,15 +26,13 @@
             <div class="file-icon d-block">
                 {{ icon }}
             </div>
-            <div class="file-link d-inline-block text-truncate" style="min-width: 400px; max-width: 400px;">
+            <div class="file-link d-inline-block text-truncate" style="">
                 {{file_name_prefix}}
             </div>
-            <div class="file-type d-inline-block text-truncate" style="width: 130px;">
-                {{ file_name_suffix }}
-            </div>
-            <div class="file-size d-inline-block text-truncate" style="width: 100px;">
-                {{ file_size }}
-            </div>
+            {# <div class="file-type d-inline-block text-truncate" style="width: 130px;"> {{ file_name_suffix }} </div> #}
+            {# <div class="file-size d-inline-block text-truncate" style="width: 100px;"> {{ file_size }}        </div> #}
+            <div class="file-type-size d-inline-block text-truncate"> {{ file_name_suffix }} |  {{ file_size | lower }}    </div>
+
         </span>
     </a>
 </div>
