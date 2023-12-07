@@ -1,0 +1,95 @@
+{% set classes                      = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
+{% set popout_height                = content.field_popout_height.0["#markup"]                                                                                                                                                  %}
+{% set popout_width                 = content.field_popout_width.0["#markup"]                                                                                                                                                   %}
+{% set popout_content_paragraph     = content.field_popout_paragraph_                                                                                                                                                           %}
+{% set popout_content_ckeditor      = content.field_popout_body_text                                                                                                                                                            %}
+{% set uniqueId                     = random()                                                                                                                                                                                  %}
+{% if not popout_height == null     %}{% set str_popout_height = "--popout-closed-height: #{popout_height}px;"%}
+{% else                             %}{% set str_popout_height = ""                                    %} {% endif %}
+{% if not popout_width  == null     %}{% set str_popout_width  = "--popout-closed-width: #{popout_width}px;"  %}
+{% else                             %}{% set str_popout_width  = ""                                    %} {% endif %}
+
+
+{% block paragraph %}
+	<div{{attributes.addClass(classes)}} style="{{str_popout_height}}{{str_popout_width}}">
+
+        <button type="button" class="btn btn-popup-trigger btn-info" data-bs-toggle="modal" data-bs-target="#popupDialog-{{uniqueId}}"> + </button>
+        <div class="model-body-content-paragraph">{{  popout_content_paragraph      }}</div>
+        <div class="model-body-content-ckeditor" >{{  popout_content_ckeditor | raw }}</div>
+
+        <div class="modal fade" id="popupDialog-{{uniqueId}}" tabindex="-1" aria-labelledby="popupDialogLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="popupDialogLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="model-body-content-paragraph">{{  popout_content_paragraph      }}</div>
+                        <div class="model-body-content-ckeditor" >{{  popout_content_ckeditor | raw }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock paragraph %}
+
+<style>
+    .paragraph--type--popout-{
+        border: 5px solid black !important;
+        padding : 10px;
+        border-radius: 10px;
+        --popout-closed-height: auto;
+        --popout-closed-width:  100%;
+        max-width: 100%;
+        width:  var(--popout-closed-width);
+        height: var(--popout-closed-height);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .paragraph--type--popout- > button.btn-popup-trigger{
+        flex-grow: 0;
+        margin-bottom: 10px;
+        width: min-content;
+        align-self: flex-end;
+    }
+    .model-body-content-paragraph{
+        /* margin-bottom: 20px; */
+        max-height: 100%;
+        overflow:hidden;
+        flex-shrink: 0;
+    }
+    .model-body-content-ckeditor{
+        /* margin-bottom: 20px; */
+        max-height: 100%;
+        overflow:hidden;
+        flex-shrink: 0;
+    }
+    .modal-dialog{
+        width: 80%;
+        max-width: 80%;
+    }
+    button.btn.btn-popup-trigger {
+        color: white;
+        background: black;
+        border: 1px solid black;
+        position: absolute;
+        z-index: 3;
+        font-size: 20px;
+        padding-inline: 8px;
+        padding-block: 0px;
+        margin-right: -11px;
+        margin-top: -11px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .paragraph--type--popout- table th,td {
+        white-space: nowrap;
+    }
+    .paragraph--type--popout- .modal-dialog .model-body-content-ckeditor{
+        overflow-x: scroll;
+    }
+    .paragraph--type--popout- .model-body-content-ckeditor .clearfix.text-formatted > p > img{
+        margin-right: 20px !important;
+    }
+</style>
