@@ -67,3 +67,7 @@ $color-under-text-default-color-foreground: #000;
     background-repeat:  no-repeat !important;
     background-size:       cover  !important;
 }
+
+.paragraph--type--layout-single-column .card-img-overlay {
+	backdrop-filter: blur(2px);
+}

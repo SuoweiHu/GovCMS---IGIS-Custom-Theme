@@ -147,6 +147,10 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
     margin-bottom: 20px;
   }
 }
+.paragraph--type--layout-two-column .mode-text-above-image .card-body img.img-fluid {
+  filter: blur(3px);
+}
+
 .image-under-text {
   position: relative;
 }
@@ -198,6 +202,10 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+}
+
+.paragraph--type--layout-single-column .card-img-overlay {
+  backdrop-filter: blur(2px);
 }
 
 .paragraph--type--layout-page-list div.item-body {
