@@ -37,6 +37,7 @@ $color-under-text-default-color-foreground: #000;
     }
 
     .card-img-overlay {
+        position: relative;
         padding-inline: $image-under-text-padding-inline;
         padding-block: $image-under-text-padding-block;
     }
@@ -70,4 +71,12 @@ $color-under-text-default-color-foreground: #000;
 
 .paragraph--type--layout-single-column .card-img-overlay {
 	backdrop-filter: blur(2px);
+}
+
+.paragraph-single-column-parallax .card-img-overlay{
+    position: relative;
+}
+
+.paragraph-single-column-layout-container.image-under-text .card-img-overlay {
+	height: fit-content;
 }

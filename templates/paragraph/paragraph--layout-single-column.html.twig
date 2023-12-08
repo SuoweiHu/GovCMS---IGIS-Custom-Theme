@@ -14,8 +14,7 @@
             <div class="text" style="background: {{color_background}}; color: {{color_foreground}}" >{{body|raw}}</div>
         </div>
     {% elseif option == "Image under text (overlay, no parallax)" %}
-        <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}}px;">
-            {{image}}
+        <div {{ attributes.addClass(classes).addClass("card").addClass("image-under-text").addClass("paragraph-single-column-layout-container")}} style="height:{{image_height}}px;background: url({{image_url}});">
             <div class="card-img-overlay" style="color: {{color_foreground}}">
                 {{body|raw}}
             </div>
