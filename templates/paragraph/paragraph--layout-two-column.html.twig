@@ -78,9 +78,8 @@
                         {{left_content}}
                     </div></div>
                 {% elseif left_mode=="Text above Image" %}
-                    <div class="card mode-text-above-image" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;"> <div class="card-body p-0">
-                        <img src="{{left_image_URL}}" class="img-fluid" alt="{{left_image_ALT}}">
-                        <div class="card-img-overlay" style="color:{{left_foreground}};">
+                    <div class="card mode-text-above-image" style="background:{{left_background}};width:{{force_left_width}}px;height:{{force_left_height}}px;background:url({{left_image_URL}});"> <div class="card-body p-0">
+                        <div class="card-text-above-image" style="color:{{left_foreground}};">
                             {{left_content}}
                         </div>
                     </div></div>
@@ -106,11 +105,10 @@
                         {{right_content}}
                     </div></div>
                 {% elseif right_mode=="Text above Image" %}
-                    <div class="card mode-text-above-image" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;"> <div class="card-body p-0">
-                        <div class="card-img-overlay" style="color:{{right_foreground}};">
+                    <div class="card mode-text-above-image" style="background:{{right_background}};width:{{force_right_width}}px;height:{{force_right_height}}px;background:url({{right_image_URL}});"> <div class="card-body p-0">
+                        <div class="card-text-above-image" style="color:{{right_foreground}};">
                             {{right_content}}
                         </div>
-                        <img src="{{right_image_URL}}" class="img-fluid" alt="{{right_image_ALT}}">
                     </div></div>
                 {% endif %}
             </div>

@@ -151,6 +151,10 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
   filter: blur(3px);
 }
 
+.paragraph--type--layout-two-column .card-text-above-image {
+  padding: 20px;
+}
+
 .image-under-text {
   position: relative;
 }
