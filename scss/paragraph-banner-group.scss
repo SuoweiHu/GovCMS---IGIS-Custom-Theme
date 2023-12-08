@@ -22,3 +22,53 @@ $banner-body-lines: 6;
 .carousel-control-next, .carousel-control-prev{
     width: 5%;
 }
+
+
+.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container{
+    position: absolute;
+    width: 50%;
+    background: white;
+    color: black;
+    height: 80%;
+    top: 10%;
+    bottom: 10%;
+    padding: 0px;
+}
+
+.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-title{
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+
+}
+.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-body{
+    padding-inline: 20px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* for Webkit-based browsers like Chrome and Safari */
+    -webkit-box-orient: vertical;
+}
+
+
+// The button circle indicator
+.paragraph--type--banner-group .carousel-indicators {
+	margin-bottom: 0px;
+    button[data-bs-target]{
+        width:         7px;
+        height:        7px;
+        border-radius: 7px;
+        border:        0px;
+        margin-bottom: 10px;
+    }
+}
+
+// Hide the controller
+.paragraph--type--banner-group .carousel-control-prev,.carousel-control-next{
+    display: none;
+}
+.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer{
+    padding-inline: 30px;
+}

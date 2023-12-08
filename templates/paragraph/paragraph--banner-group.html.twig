@@ -1,8 +1,21 @@
-{% set classes  = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
-{% set uniqueId = random() %}
+{% set classes      = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
+{% set uniqueId     = random()                                                                                                                                                                                 %}
+{% set banner_size  = content.field_banner_single["#items"]|length                                                                                                                                             %}
+{# {{dump( content.field_banner_single["#items"]|length       )}} #}
 
 {% block paragraph %}
     <div id="carouselBanner-{{uniqueId}}" {{ attributes.addClass(classes).addClass("carousel").addClass("slide").addClass("border rounded")}}>
+
+        <!-- The dot indicators that will toggle the banner -->
+        <div class="carousel-indicators">
+            {% for i in range(0, banner_size-1) %}
+                {% if not i == 0 %}
+                    <button type="button" data-bs-target="#carouselBanner-{{uniqueId}}" data-bs-slide-to="{{i}}" aria-current="true" aria-label="Slide {{i}}"></button>
+                {% else %}
+                    <button type="button" data-bs-target="#carouselBanner-{{uniqueId}}" class="active" data-bs-slide-to="{{i}}" aria-current="true" aria-label="Slide {{i}}"></button>
+                {% endif %}
+            {% endfor %}
+        </div>
         <!-- Container for the carousel items -->
         <div class="carousel-inner">
             {{content.field_banner_single}}
