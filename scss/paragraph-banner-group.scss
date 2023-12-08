@@ -25,32 +25,40 @@ $banner-body-lines: 6;
 
 
 .paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container{
-    position: absolute;
-    width: 50%;
+    // position: absolute;
+    // width: 100%;
+    // top: 10%;
+    // bottom: 10%;
+    height: 100%;
+    padding: 0px;
     background: white;
     color: black;
-    height: 80%;
-    top: 10%;
-    bottom: 10%;
-    padding: 0px;
 }
 
 .paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-title{
-    margin-top: 30px;
+    // margin-top: 30px;
+    padding-top: 30px;
     text-align: center;
-    width: 100%;
+    // width: 100%;
 
 }
 .paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-body{
     padding-inline: 20px;
     text-align: center;
-    width: 100%;
+    // width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4; /* for Webkit-based browsers like Chrome and Safari */
     -webkit-box-orient: vertical;
 }
+.paragraph--type--banner-group .background-layer{
+    margin-inline: 0px;
+}
+.paragraph--type--banner-group .background-layer .container.col-lg-7{
+	margin-inline: 0px;
+}
+
 
 
 // The button circle indicator
@@ -71,4 +79,19 @@ $banner-body-lines: 6;
 }
 .paragraph--type--banner-group .carousel-inner .carousel-item .background-layer{
     padding-inline: 30px;
+}
+
+// Mobile banner
+@media (max-width: 991px){
+	.paragraph--type--banner-group .carousel-indicators button{
+		margin-bottom: 10px !important;
+	}
+	.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer{
+		padding-top:    10px;
+		padding-bottom: 30px;
+		padding-inline: 10px;
+	}
+	.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container{
+		background: unset;
+	}
 }

@@ -66,14 +66,14 @@
 
         {# set the first banner to active by default #}
         {% if key == 0 %}
-        <div {{ item.attributes.addClass("carousel-item").addClass("active")}} style="{{animation_style_string}}">
+        <div {{ item.attributes.addClass("carousel-item").addClass("justify-content-lg-start").addClass("active")}} style="{{animation_style_string}}">
         {# set the non-first banner to in-active by default #}
         {% else %}
-        <div {{ item.attributes.addClass("carousel-item")}} style="{{animation_style_string}}">
+        <div {{ item.attributes.addClass("carousel-item").addClass("justify-content-lg-start")}} style="{{animation_style_string}}">
         {% endif %}
             {% if not image_url == null %}
-                <div class="background-layer " style="background:url({{image_url}}); color:{{color_foreground}};{{item_height_string}}">
-                    <div class="container">
+                <div class="background-layer row" style="background:url({{image_url}}); color:{{color_foreground}};{{item_height_string}}">
+                    <div class="container col-lg-7">
                         <div class="row banner-title">
                             <h4>{{ item_title }}</h4>
                         </div>
@@ -83,8 +83,8 @@
                     </div>
                 </div>
             {% else %}
-                <div class="background-layer " style="background:{{color_background}};color:{{color_foreground}};{{item_height_string}}">
-                    <div class="container">
+                <div class="background-layer row" style="background:{{color_background}};color:{{color_foreground}};{{item_height_string}}">
+                    <div class="container col-lg-7">
                         <div class="row banner-title">
                             <h4>{{ item_title }}</h4>
                         </div>
