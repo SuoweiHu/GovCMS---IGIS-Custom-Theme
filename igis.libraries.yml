@@ -6,6 +6,13 @@ global-styling:
     component:
       css/colors.css: {}
       css/style.css: {}
+bcSwipe:
+  js:
+    js/jquery.touchSwipe.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
 bootstrap:
   js:
     /libraries/popper.js/dist/umd/popper.min.js: { weight: -19 }

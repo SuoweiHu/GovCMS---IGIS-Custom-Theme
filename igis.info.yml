@@ -8,6 +8,7 @@ base theme: bootstrap_barrio
 libraries:
   - igis/bootstrap_cdn
   - igis/global-styling
+  - igis/bcSwipe
 
 regions:
   top_header: 'Top header'
