@@ -48,8 +48,8 @@
 {% else                                    %}{% set str_page_list_height_text  = ""                                                            %}{% endif %}
 {% if not page_list_height_image == null   %}{% set str_page_list_height_image = "--page-list-card-image-height:#{page_list_height_image}px;"  %}
 {% else                                    %}{% set str_page_list_height_image = ""                                                            %}{% endif %}
-{% if not page_list_row_cards == null      %}{% set str_page_list_row_cards    = "row-cols-#{page_list_row_cards}"                             %}
-{% else                                    %}{% set str_page_list_row_cards    = "row-cols-3"                                                  %}{% endif %}
+{% if not page_list_row_cards == null      %}{% set str_page_list_row_cards    = "row-cols-1 row-cols-lg-#{page_list_row_cards}"                             %}
+{% else                                    %}{% set str_page_list_row_cards    = "row-cols-1 row-cols-lg-3"                                                  %}{% endif %}
 {% if page_list_mode == "List View" %}
     {% set title_classes = [ label_display == 'visually_hidden' ? 'visually-hidden', ] %}
     {% for item in items %}

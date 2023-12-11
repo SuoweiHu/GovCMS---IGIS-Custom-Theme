@@ -524,7 +524,7 @@ span.file div.file-type-size {
 
 .read-more-summary .collapse:not(.show) + .fade-overlay, .read-more-summary .collapsing + .fade-overlay {
   height: 60px;
-  margin-top: -70px;
+  margin-top: -60px;
   width: 100%;
   background-image: linear-gradient(to bottom, transparent, white);
   transition: height 0.2s ease-in-out, margin-top 0.2s ease-in-out;
