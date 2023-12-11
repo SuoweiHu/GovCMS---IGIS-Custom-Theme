@@ -9,6 +9,9 @@ global-styling:
 popper:
   js:
     js/popper.js: {}
+popout:
+  js:
+    js/popout.js: {}
 tooltip:
   js:
     js/tooltip.js: {}

@@ -1,0 +1,68 @@
+/** @format */
+
+.popup-container {
+	border: 5px solid black !important;
+	padding: 10px;
+	border-radius: 10px;
+	--popout-closed-height: auto;
+	--popout-closed-width: 100%;
+	max-width: 100%;
+	width: var(--popout-closed-width);
+	height: var(--popout-closed-height);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.popup-container > button.btn-popup-trigger {
+	flex-grow: 0;
+	margin-bottom: 10px;
+	width: min-content;
+	align-self: flex-end;
+}
+.model-body-content-paragraph {
+	/* margin-bottom: 20px; */
+	max-height: 100%;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+.model-body-content-ckeditor {
+	/* margin-bottom: 20px; */
+	max-height: 100%;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+.modal-dialog {
+	width: 80%;
+	max-width: 80%;
+}
+button.btn.btn-popup-trigger {
+	color: white;
+	background: black;
+	border: 1px solid black;
+	position: absolute;
+	z-index: 3;
+	font-size: 20px;
+	padding-inline: 8px;
+	padding-block: 0px;
+	margin-right: -11px;
+	margin-top: -11px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.popup-container table th,
+td {
+	white-space: nowrap;
+}
+.popup-container .modal-dialog .model-body-content-ckeditor {
+	overflow-x: scroll;
+}
+.popup-container
+	.model-body-content-ckeditor
+	.clearfix.text-formatted
+	> p
+	> img {
+	margin-right: 20px !important;
+}
+
+.model-body-content-paragraph{
+	height: 150px;
+}

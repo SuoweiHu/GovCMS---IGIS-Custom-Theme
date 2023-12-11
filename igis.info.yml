@@ -11,6 +11,7 @@ libraries:
   - igis/global-styling
   - igis/bcSwipe
   - igis/tooltip
+  - igis/popout
 
 regions:
   top_header: 'Top header'
