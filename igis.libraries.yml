@@ -6,6 +6,9 @@ global-styling:
     component:
       css/colors.css: {}
       css/style.css: {}
+popper:
+  js:
+    js/popper.js: {}
 bcSwipe:
   js:
     js/jquery.touchSwipe.min.js: {}
