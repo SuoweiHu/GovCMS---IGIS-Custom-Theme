@@ -18,45 +18,7 @@
 {% set field_three_column_cards_link_l3  = content.field_three_column_cards_link_l3.0["#context"].value                                                                                                                             %}
 
 {% block paragraph %}
-	<div {{ attributes.addClass(classes).addClass("paragraph-" ~ uniqueId).addClass("container")}}>
-        <div class="cards-background-backdrop">
-        </div>
-		<div class="row cards-columns-container">
-			<div class="col-lg-4 cards-column cards-column-1">
-				<div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{field_three_column_cards_title1}}     </h5>
-                    <p  class="card-text">{{field_three_column_cards_body1}}       </p>
-                    <a href="{{field_three_column_cards_link_l1}}" class="btn btn-primary card-link">
-                        {{field_three_column_cards_link_t1}}
-                    </a>
-                </div>
-                </div>
-			</div>
-			<div class="col-lg-4 cards-column cards-column-2">
-				<div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{field_three_column_cards_title2}}      </h5>
-                    <p  class="card-text">{{field_three_column_cards_body2}}        </p>
-                    <a href="{{field_three_column_cards_link_l2}}" class="btn btn-primary card-link">
-                        {{field_three_column_cards_link_t2}}
-                    </a>
-                </div>
-                </div>
-			</div>
-			<div class="col-lg-4 cards-column cards-column-3">
-				<div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{field_three_column_cards_title3}}      </h5>
-                    <p  class="card-text">{{field_three_column_cards_body3}}        </p>
-                    <a href="{{field_three_column_cards_link_l3}}" class="btn btn-primary card-link">
-                        {{field_three_column_cards_link_t3}}
-                    </a>
-                </div>
-                </div>
-			</div>
-		</div>
-	</div>
+    {# Variable Styling #}
     <style>
         {{ "." ~ classes | join(".")  | slice(0, -1) ~ ".paragraph-" ~ uniqueId ~ "{" }}
             {% if not field_three_column_cards_bgbg == null %} --three_column_cards_bgbg: {{field_three_column_cards_bgbg }}; {% endif %}
@@ -64,45 +26,94 @@
             {% if not field_three_column_cards_bg2  == null %} --three_column_cards_bg2:  {{field_three_column_cards_bg2  }}; {% endif %}
             {% if not field_three_column_cards_bg3  == null %} --three_column_cards_bg3:  {{field_three_column_cards_bg3  }}; {% endif %}
         {{ "}" }}
-        .paragraph--type--three-column-cards .cards-background-backdrop                     { background: var(--three_column_cards_bgbg);}
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column-1 .card { background: var(--three_column_cards_bg1); }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column-2 .card { background: var(--three_column_cards_bg2); }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column-3 .card { background: var(--three_column_cards_bg3); }
-
-        .paragraph--type--three-column-cards .cards-background-backdrop {
-            width: 100vw;
-            height: 100%;
-            margin-left: calc(50% - 50vw);
-            position: absolute;
-        }
-        .paragraph--type--three-column-cards .cards-columns-container{
-            padding-top:    30px;
-            padding-bottom: 30px
-        }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column .card {
-            border-radius: 3px;
-            height: 100%;
-        }
-
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column .card .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column .card .card-body .card-text {
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column .card .card-body .card-link {
-            flex-grow: 0;
-            border-radius: 3px;
-            background: var(--bs-link-color);
-            border: 1px solid var(--bs-link-color);
-            transition: border 0.2s ease-in-out, background 0.2s ease-in-out;
-        }
-        .paragraph--type--three-column-cards .cards-columns-container .cards-column .card .card-body .card-link:hover {
-            background: var(--bs-link-hover-color);
-            border: 1px solid var(--bs-link-hover-color);
-        }
     </style>
+
+
+    {# Desktop Version of Three Cards #}
+	<div {{ attributes.addClass(classes).addClass("paragraph-" ~ uniqueId).addClass("container").addClass("desktop")}}>
+		<div class="row cards-columns-container">
+			<div class="col-lg-4 cards-column cards-column-1">
+				<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{field_three_column_cards_title1}}     </h5>
+                        <p  class="card-text">{{field_three_column_cards_body1}}       </p>
+                        <a href="{{field_three_column_cards_link_l1}}" class="btn btn-primary card-link">
+                            {{field_three_column_cards_link_t1}}
+                        </a>
+                    </div>
+                </div>
+			</div>
+			<div class="col-lg-4 cards-column cards-column-2">
+				<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{field_three_column_cards_title2}}      </h5>
+                        <p  class="card-text">{{field_three_column_cards_body2}}        </p>
+                        <a href="{{field_three_column_cards_link_l2}}" class="btn btn-primary card-link">
+                            {{field_three_column_cards_link_t2}}
+                        </a>
+                    </div>
+                </div>
+			</div>
+			<div class="col-lg-4 cards-column cards-column-3">
+				<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{field_three_column_cards_title3}}      </h5>
+                        <p  class="card-text">{{field_three_column_cards_body3}}        </p>
+                        <a href="{{field_three_column_cards_link_l3}}" class="btn btn-primary card-link">
+                            {{field_three_column_cards_link_t3}}
+                        </a>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+    {# Mobile Version of Three Cards #}
+	<div {{ attributes.addClass(classes).addClass("paragraph-" ~ uniqueId).addClass("container").addClass("mobile")}}>
+		<div class="row cards-columns-container">
+            <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            {# ============================================ #}
+                    <div class="carousel-inner-1 carousel-item active">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{field_three_column_cards_title1}}     </h5>
+                                <p  class="card-text">{{field_three_column_cards_body1}}       </p>
+                                <a href="{{field_three_column_cards_link_l1}}" class="btn btn-primary card-link">
+                                    {{field_three_column_cards_link_t1}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            {# ============================================ #}
+                    <div class="carousel-inner-2 carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{field_three_column_cards_title2}}      </h5>
+                                <p  class="card-text">{{field_three_column_cards_body2}}        </p>
+                                <a href="{{field_three_column_cards_link_l2}}" class="btn btn-primary card-link">
+                                    {{field_three_column_cards_link_t2}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            {# ============================================ #}
+                    <div class="carousel-inner-3 carousel-item carousel-inner-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{field_three_column_cards_title3}}      </h5>
+                                <p  class="card-text">{{field_three_column_cards_body3}}        </p>
+                                <a href="{{field_three_column_cards_link_l3}}" class="btn btn-primary card-link">
+                                    {{field_three_column_cards_link_t3}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            {# ============================================ #}
+            </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock paragraph %}
