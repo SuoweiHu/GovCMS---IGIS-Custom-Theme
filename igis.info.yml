@@ -10,6 +10,7 @@ libraries:
   - igis/bootstrap_cdn
   - igis/global-styling
   - igis/bcSwipe
+  - igis/tooltip
 
 regions:
   top_header: 'Top header'

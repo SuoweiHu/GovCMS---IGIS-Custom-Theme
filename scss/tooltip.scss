@@ -1,0 +1,102 @@
+
+/* The icon */
+.popup-tooltip{
+	text-align: center;
+	border: 2px solid #444;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 17px;
+	cursor: default;
+}
+
+.popup-tooltip.popup-tooltip-information:before{
+    content:'i';
+    font-family: sans-serif;
+    font-weight: normal;
+    color:#444;
+}
+
+.popup-tooltip.popup-tooltip-question:before{
+    content:'?';
+    font-family: sans-serif;
+    font-weight: normal;
+    color:#444;
+}
+
+.popup-tooltip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+    -webkit-animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+/* The tooltip */
+.popup-tooltip p {
+	display: none;
+	font-family: sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+	background-color: #FFFFFF;
+	padding: 12px 16px;
+	width: 178px;
+	height: auto;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 20%);
+	border-radius: 3px;
+/* 	border: 1px solid #E0E0E0; */
+	box-shadow: 0 0px 20px 0 rgba(0,0,0,0.1);
+	color: #37393D;
+	font-size: 12px;
+	line-height: 18px;
+	z-index: 99;
+}
+
+.popup-tooltip p a {
+	color: #067df7;
+	text-decoration: none;
+}
+
+.popup-tooltip p a:hover {
+	text-decoration: underline;
+}
+
+/* The pointer of the tooltip */
+.popup-tooltip p:before {
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color:#FFFFFF;
+	top: -9px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+ /* Prevents the tooltip from being hidden */
+.popup-tooltip p:after {
+	width: 10px;
+	height: 40px;
+	content:'';
+	position: absolute;
+	top: -40px;
+	left: 0;
+}
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+.popup-tooltip{
+	margin-bottom: 10px !important;
+}

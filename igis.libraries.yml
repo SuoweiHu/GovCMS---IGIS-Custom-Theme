@@ -9,6 +9,9 @@ global-styling:
 popper:
   js:
     js/popper.js: {}
+tooltip:
+  js:
+    js/tooltip.js: {}
 bcSwipe:
   js:
     js/jquery.touchSwipe.min.js: {}
