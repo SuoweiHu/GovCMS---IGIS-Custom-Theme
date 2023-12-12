@@ -1,7 +1,5 @@
 /** @format */
 
-console.log("███████████████████████████████████████")
-
 function generateUniqueId() {
 	const timestamp = Date.now();
 	const randomValue = Math.floor(Math.random() * 10000);
@@ -46,7 +44,7 @@ function generatePopupContainer (model_id, innerHTML){
 var popout_elements = document.querySelectorAll(".popout-container");
 popout_elements.forEach(function (element) {
     var uniqueId = generateUniqueId();
-    console.log(uniqueId);
+    // console.log(uniqueId);
     var element_transformed = generatePopupContainer(uniqueId, element.innerHTML);
     element.replaceWith(element_transformed);
 });

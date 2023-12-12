@@ -63,6 +63,24 @@ td {
 	margin-right: 20px !important;
 }
 
-.model-body-content-paragraph{
+.popup-container .model-body-content-paragraph{
 	height: 150px;
+}
+
+.popup-container .modal-header {
+	border-bottom:      none;
+	margin-bottom: -49.126px;
+	z-index:             999;
+}
+.popup-container .modal-body{
+	padding-inline: 50px;
+	padding-block:  40px;
+}
+.popup-container .modal-dialog{
+	margin-top:    30px;
+	margin-bottom: 70px;
+}
+
+.popup-container .modal-dialog .modal-content{
+	min-height:    calc(100vh - 100px);
 }
