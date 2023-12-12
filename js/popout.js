@@ -45,6 +45,6 @@ var popout_elements = document.querySelectorAll(".popout-container");
 popout_elements.forEach(function (element) {
     var uniqueId = generateUniqueId();
     // console.log(uniqueId);
-    var element_transformed = generatePopupContainer(uniqueId, element.innerHTML);
+    var element_transformed = generatePopupContainer(uniqueId, element.outerHTML);
     element.replaceWith(element_transformed);
 });

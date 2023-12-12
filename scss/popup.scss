@@ -84,3 +84,11 @@ td {
 .popup-container .modal-dialog .modal-content{
 	min-height:    calc(100vh - 100px);
 }
+
+.popup-container .modal-body{
+	overflow-x: scroll;
+}
+
+.popup-container .modal-body div.popup-container{
+	overflow-x: scroll;
+}
