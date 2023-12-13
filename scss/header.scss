@@ -1,10 +1,8 @@
 // The main header container
 nav#navbar-main {
-
     display: flex;
     flex-direction: column;
     background: white;
-
     // The main logo below the navigation bar
     .navbar-brand{
         width: 100vw;
@@ -12,7 +10,6 @@ nav#navbar-main {
         padding-inline: calc(100% - $page-hori-width);
         margin-bottom: 10px;
     }
-
     // The main navigation bar below the logo
     div.navbar-collapse {
         background: $header-nav-background;
@@ -25,13 +22,11 @@ nav#navbar-main {
             li.nav-item {
                 list-style: none;
                 margin-right: $header-hori-margin;
-
                 a{
                     color: $header-nav-foreground;
                     text-decoration: none;
                     text-align: left;
                 }
-
                 a.nav-link--.is-active::before {
                     display: none !important;
                 }

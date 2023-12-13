@@ -349,19 +349,19 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
   }
 }
 .accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button {
-  background: #35737a;
+  background: var(--accordion-color-collapsed, #35737a);
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .accordion-item:has(.show) > h2.accordion-header > .accordion-button {
-  background: #153243;
+  background: var(--accordion-color-expanded, #153243);
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .accordion-item > h2.accordion-header > .accordion-button:hover {
-  background: #284B63;
+  background: var(--accordion-color-hover, #284B63);
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
