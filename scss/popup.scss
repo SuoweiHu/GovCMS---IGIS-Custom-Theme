@@ -92,3 +92,36 @@ td {
 .popup-container .modal-body div.popup-container{
 	overflow-x: scroll;
 }
+
+
+div.popup-container button.btn.btn-popup-trigger{
+	border-radius: 5px;
+	margin-right: -15px;
+	margin-top: -15px;
+	transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+div.popup-container button.btn.btn-popup-trigger:hover{
+	background:   var(--bs-link-hover-color);
+	border-color: var(--bs-link-hover-color);
+	box-shadow: -4px 4px 4px rgba(0,0,0,0.2)
+}
+
+div.popup-container{
+	transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	border-radius: 5px;
+}
+
+div.popup-container:has(button.btn.btn-popup-trigger:hover){
+	border-color: var(--bs-link-hover-color) !important;
+    box-shadow: -4px 4px 4px rgba(0,0,0,0.2)
+}
+
+.popup-container .model-body-content-paragraph{
+	transition: filter 0.2s ease-in-out;
+}
+
+// .popup-container:has(button.btn.btn-popup-trigger:hover) .model-body-content-paragraph{
+	// filter: drop-shadow(2px 2px 2px grey) grayscale(80%);
+    // filter: saturate(0%) blue; background-color: blue;
+    // filter: blur(3.0);
+// }
