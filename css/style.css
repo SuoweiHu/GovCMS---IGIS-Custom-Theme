@@ -755,6 +755,14 @@ span.file div.file-type-size {
   margin-bottom: 10px !important;
 }
 
+@media (max-width: 991px) {
+  .popup-tooltip p {
+    transform: translate(0%, 0%);
+  }
+  .popup-tooltip p:before {
+    display: none;
+  }
+}
 /** @format */
 .popup-container {
   border: 5px solid black !important;
