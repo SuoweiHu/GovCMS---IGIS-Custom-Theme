@@ -349,19 +349,19 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
   }
 }
 .accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button {
-  background: var(--accordion-color-collapsed, #35737a);
+  background: #35737a;
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .accordion-item:has(.show) > h2.accordion-header > .accordion-button {
-  background: var(--accordion-color-expanded, #153243);
+  background: #153243;
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .accordion-item > h2.accordion-header > .accordion-button:hover {
-  background: var(--accordion-color-hover, #284B63);
+  background: #284B63;
   color: #fff;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
@@ -855,14 +855,6 @@ td {
   min-height: calc(100vh - 100px);
 }
 
-.popup-container .modal-body {
-  overflow-x: scroll;
-}
-
-.popup-container .modal-body div.popup-container {
-  overflow-x: scroll;
-}
-
 div.popup-container button.btn.btn-popup-trigger {
   border-radius: 5px;
   margin-right: -15px;
@@ -888,6 +880,10 @@ div.popup-container:has(button.btn.btn-popup-trigger:hover) {
 
 .popup-container .model-body-content-paragraph {
   transition: filter 0.2s ease-in-out;
+}
+
+.modal-body {
+  overflow-x: scroll;
 }
 
 /*# sourceMappingURL=style.css.map */

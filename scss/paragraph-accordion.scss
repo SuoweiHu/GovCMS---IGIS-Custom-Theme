@@ -11,16 +11,19 @@ $accordion-color-border:                      #2e6268;
 
 .accordion-item:not(:has(.show)) > h2.accordion-header > .accordion-button  {
 	background: var(--accordion-color-collapsed,$accordion-color-header-background-collapsed);
+	// background: $accordion-color-header-background-collapsed;
 	color:      $accordion-color-header-foreground-collapsed;
     transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 .accordion-item:has(.show) > h2.accordion-header > .accordion-button  {
     background: var(--accordion-color-expanded,$accordion-color-header-background-expanded);
+    // background: $accordion-color-header-background-expanded;
     color:      $accordion-color-header-foreground-expanded;
     transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 .accordion-item > h2.accordion-header > .accordion-button:hover  {
 	background:  var(--accordion-color-hover,$accordion-color-header-background-hover);
+	// background:  $accordion-color-header-background-hover;
 	color:      $accordion-color-header-foreground-hover;
     transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
