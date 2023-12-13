@@ -30,7 +30,7 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('nav navbar-nav')|without('id') }}>
+      <ul{{ attributes.addClass('nav navbar-nav container')|without('id') }}>
     {% elseif menu_level == 1 %}
       <ul class="dropdown-menu link-item-card-container border-0 rounded-0">
     {% else %}
@@ -92,51 +92,10 @@
 
 
 <style>
-    ul.dropdown-menu.link-item-card-container.show {
-        position: fixed;
-        left: 0px;
-        top: 282px;
-        width: 100vw;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        background: #35737A;
-        padding-bottom: 20px;
-        padding-top:    20px;
-        padding-inline: calc(100% - 1600px);
-    }
 
-    ul.dropdown-menu.link-item-card-container.show li.dropdown-item{
-        flex-basis:     30%;
-        padding-inline: 0px;
-        padding-block:  0px;
-        margin-right: 30px;
-        margin-bottom: 30px;
-    }
 
-    ul.dropdown-menu.link-item-card-container.show li.dropdown-item .link-item-card{
-        width: 100%;
-        background: #35737A;
-    }
-    ul.dropdown-menu.link-item-card-container.show li.dropdown-item .link-item-card div.link-item-card-body{
-        color: white;
-        padding-inline: 0px;
-        padding-block:  0px;
-    }
-    nav.menu--main > ul.navbar-nav > li.nav-item:first-of-type > a{
-        padding-inline: 0px;
-    }
-    .card-body.link-item-card-body:hover > .link-item-card-body-title, .card-body.link-item-card-body:hover > .link-item-card-body-text {
-        text-decoration: underline !important;
-    }
-    .card-body.link-item-card-body > .link-item-card-body-title:hover, .card-body.link-item-card-body > .link-item-card-body-text:hover {
-        color: white;
-    }
 
-    {# .card-body.link-item-card-body:hover{ #}
-        {# background: #4a9fa8; #}
-    {# } #}
+
 
 </style>
 
