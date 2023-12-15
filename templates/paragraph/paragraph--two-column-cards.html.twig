@@ -1,0 +1,90 @@
+{% set uniqueId                          = random()                                                                                                                                                                                 %}
+{% set classes                           = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
+{% set field_two_column_cards_bgbg     = content.field_two_column_cards_bgbg.0["#context"].value                                                                                                                                %}
+{% set field_two_column_cards_bg1      = content.field_two_column_cards_bg1.0["#context"].value                                                                                                                                 %}
+{% set field_two_column_cards_bg2      = content.field_two_column_cards_bg2.0["#context"].value                                                                                                                                 %}
+{% set field_two_column_cards_title1   = content.field_two_column_cards_title1.0["#context"].value                                                                                                                              %}
+{% set field_two_column_cards_title2   = content.field_two_column_cards_title2.0["#context"].value                                                                                                                              %}
+{% set field_two_column_cards_body1    = content.field_two_column_cards_body1.0["#context"].value                                                                                                                               %}
+{% set field_two_column_cards_body2    = content.field_two_column_cards_body2.0["#context"].value                                                                                                                               %}
+{% set field_two_column_cards_link_t1  = content.field_two_column_cards_link_t1.0["#context"].value                                                                                                                             %}
+{% set field_two_column_cards_link_t2  = content.field_two_column_cards_link_t2.0["#context"].value                                                                                                                             %}
+{% set field_two_column_cards_link_l1  = content.field_two_column_cards_link_l1.0["#context"].value                                                                                                                             %}
+{% set field_two_column_cards_link_l2  = content.field_two_column_cards_link_l2.0["#context"].value                                                                                                                             %}
+
+{% block paragraph %}
+    {# Variable Styling #}
+    <style>
+        {{ "." ~ classes | join(".")  | slice(0, -1) ~ ".paragraph-" ~ uniqueId ~ "{" }}
+            {% if not field_two_column_cards_bgbg == null %} --three_column_cards_bgbg: {{field_two_column_cards_bgbg }}; {% endif %}
+            {% if not field_two_column_cards_bg1  == null %} --three_column_cards_bg1:  {{field_two_column_cards_bg1  }}; {% endif %}
+            {% if not field_two_column_cards_bg2  == null %} --three_column_cards_bg2:  {{field_two_column_cards_bg2  }}; {% endif %}
+        {{ "}" }}
+    </style>
+
+
+    {# Desktop Version of Three Cards #}
+	<div {{ attributes.addClass(classes).addClass("paragraph-" ~ uniqueId).addClass("container").addClass("desktop")}}>
+		<div class="row cards-columns-container">
+			<div class="col-lg-6 cards-column cards-column-1">
+				<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{field_two_column_cards_title1}}     </h5>
+                        <p  class="card-text">{{field_two_column_cards_body1}}       </p>
+                        <a href="{{field_two_column_cards_link_l1}}" class="btn btn-primary card-link">
+                            {{field_two_column_cards_link_t1}}
+                        </a>
+                    </div>
+                </div>
+			</div>
+			<div class="col-lg-6 cards-column cards-column-2">
+				<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{field_two_column_cards_title2}}      </h5>
+                        <p  class="card-text">{{field_two_column_cards_body2}}        </p>
+                        <a href="{{field_two_column_cards_link_l2}}" class="btn btn-primary card-link">
+                            {{field_two_column_cards_link_t2}}
+                        </a>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+    {# Mobile Version of Three Cards #}
+	<div {{ attributes.addClass(classes).addClass("paragraph-" ~ uniqueId).addClass("container").addClass("mobile")}}>
+		<div class="row cards-columns-container">
+            <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            {# ============================================ #}
+                    <div class="carousel-inner-1 carousel-item active">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{field_two_column_cards_title1}}     </h5>
+                                <p  class="card-text">{{field_two_column_cards_body1}}       </p>
+                                <a href="{{field_two_column_cards_link_l1}}" class="btn btn-primary card-link">
+                                    {{field_two_column_cards_link_t1}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            {# ============================================ #}
+                    <div class="carousel-inner-2 carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{field_two_column_cards_title2}}      </h5>
+                                <p  class="card-text">{{field_two_column_cards_body2}}        </p>
+                                <a href="{{field_two_column_cards_link_l2}}" class="btn btn-primary card-link">
+                                    {{field_two_column_cards_link_t2}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            {# ============================================ #}
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock paragraph %}
