@@ -1,4 +1,5 @@
-// The main header container
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Desktop Menu
 @media (min-width:1200px){
     nav#navbar-main {
         display: flex;
@@ -53,8 +54,6 @@
                 font-size: 25px;
                 z-index: 1;
             }
-            @media (min-width:1200px) and (max-width:1399px) { &::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 12px);}}
-            @media (min-width:1400px) {                        &::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 12px);}}
             position: relative;
             li.nav-item{
                 a.nav-link {
@@ -115,45 +114,121 @@
 }
 @media (min-width:1200px) and (max-width:1399px) {nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1116px) / 2); }}
 @media (min-width:1400px) {                       nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1296px) / 2); }}
+@media (min-width:1200px) and (max-width:1399px) { nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 12px);}}
+@media (min-width:1400px) {                        nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 12px);}}
 
-
-//███████████████████████████████████████
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 // Mobile menu
-@media (max-width:  1199px){
-    nav#navbar-main div.navbar-collapse ul.clearfix.nav.navbar-nav.container {
-        position: relative;
-        left: calc( (100vw - 934px) / 2 * (+1));
-        top: 0px;
-        width: 100vw;
-        height: 100vh;
-        padding: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-
+@media (max-width:  1199px)  and (min-width: 992px)  { button.navbar-toggler {right: calc((100vw - 934px) / 2);} }
+@media (max-width:   991px)  and (min-width: 576px)  { button.navbar-toggler {right: calc((100vw - 514px) / 2);} }
+@media (max-width:   575px)                          { button.navbar-toggler {right: 12px;}                      }
+@media (max-width:  1199px)  and (min-width: 992px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 934px) / 2);} }
+@media (max-width:   991px)  and (min-width: 576px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 514px) / 2);} }
+@media (max-width:   575px)                          { header#header > nav#navbar-main > a.navbar-brand {left: 12px;}                      }
+@media (max-width:  1199px)  and (min-width: 992px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 934px; left: calc( (100vw - 934px) / 2 * (+1));} }
+@media (max-width:   991px)  and (min-width: 576px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 514px; left: calc( (100vw - 514px) / 2 * (+1));} }
+@media (max-width:   575px)                          { header#header > nav#navbar-main ul.navbar-nav.container {width: 100%;  left: 12px;}                              }
+@media (max-width:  1199px)                          {
+    header#header > nav#navbar-main{
+        padding-top: 30px;
+        padding-bottom: 20px;
+        background: none;
+        // Logo act as a link
+        a.navbar-brand{
+            position: relative;
+            img{ height: 90px; width:  auto;}
+        }
+        // Toggler button
+        button.navbar-toggler {
+            border-radius: 0px;
+            border-color: transparent;
+            position: relative;
+            top: 20px;
+            padding-inline: 0px;
+            &:focus{ box-shadow: none; }
+            span.navbar-toggler-icon {
+                height: 50px;
+                width:  50px;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%282, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
     }
-    nav#navbar-main div.navbar-collapse ul.clearfix.nav.navbar-nav.container > li{
-        text-align: center;
-        width: 100vw;
+    header#header > nav#navbar-main div.navbar-collapse {
+        ul.clearfix.nav.navbar-nav.container {
+            position: relative;
+            top: 0px;
+            height: 100vh;
+            padding: 0px;
+            margin-right: 0px;
+            margin-left: 0px;
+            padding-top: 50px;
+            li.nav-item{
+                text-align: center;
+                width: 100%;
+                margin-bottom: 30px;
+                a.nav-link{
+                    color: black;
+                    transition: all 0.2s ease-in-out;
+                    width: fit-content;
+                    margin-inline: auto;
+                    border-bottom: 4px solid transparent;
+                    &.show{
+                        border-bottom: 4px solid black;
+                    }
+                    &:hover{
+                        color: var(--bs-link-hover-color);
+                        border-bottom: 4px solid var(--bs-link-hover-color);
+                    }
+                }
+                &.dropdown{
+                    transition: all 0.2s ease-in-out;
+                    // &:has(.dropdown-toggle.show){ background-color: #dddddd; }
+                    ul.dropdown-menu.link-item-card-container{
+                        transition: all 1.0s ease-in-out;
+                        // border-bottom: 10px solid transparent;
+                        // border-right:  10px solid transparent;
+                        // border-left:   10px solid transparent;
+                        // &.show{
+                        //     border-bottom: 10px solid #dddddd !important;
+                        //     border-right:  10px solid #dddddd !important;
+                        //     border-left:   10px solid #dddddd !important;
+                        // }
+                        transition: all 0.2s ease-in-out;
+                        li.dropdown-item{
+                            &:hover{
+                                background: transparent;
+                            }
+                            &:focus{
+                                background: transparent;
+                            }
+                            a.card{
+                                transition: all 0.2s ease-in-out;
+                                text-decoration: none;
+                                &:hover{
+                                    div.card-body{
+                                        h6.card-title{
+                                            color: var(--bs-link-hover-color);
+                                        }
+                                    }
+                                }
+                                div.card-body{
+                                    h6.card-title{
+                                        font-size: 0.8rem;
+                                        text-align: center;
+                                        color: black;
+                                    }
+                                    p.card-text{
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-button.navbar-toggler {
-	/* border: 5px dotted #F9B455 !important; */
-	border-radius: 0px;
-	border-color: transparent;
-	position: fixed;
-	top: 70px;
-}
-@media (max-width: 1199px) and (min-width: 992px)  {
-    button.navbar-toggler {right: calc((100vw - 934px) / 2);}
-}
-@media (max-width: 991px)  {
-    button.navbar-toggler {right: calc((100vw - 514px) / 2);}
-}
-button.navbar-toggler > span.navbar-toggler-icon {
-	height: 60px;
-	width:  60px;
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%282, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
 
-//███████████████████████████████████████
+// ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
