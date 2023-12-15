@@ -1,31 +1,5 @@
-{#
-/**
- * @file
- * Bootstrap Barrio's override to display a menu.
- *
- * Available variables:
- * - menu_name: The machine name of the menu.
- * - items: A nested list of menu items. Each menu item contains:
- *   - attributes: HTML attributes for the menu item.
- *   - below: The menu item child items.
- *   - title: The menu link title.
- *   - url: The menu link url, instance of \Drupal\Core\Url
- *   - localized_options: Menu link localized options.
- *   - is_expanded: TRUE if the link has visible children within the current
- *     menu tree.
- *   - is_collapsed: TRUE if the link has children within the current menu tree
- *     that are not currently visible.
- *   - in_active_trail: TRUE if the link is in the active trail.
- */
-#}
 {% import _self as menus %}
-
-{#
-  We call a macro which calls itself to render the full tree.
-  @see http://twig.sensiolabs.org/doc/tags/macro.html
-#}
 {{ menus.menu_links(items, attributes, 0) }}
-
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
@@ -56,21 +30,14 @@
             'nav-link-' ~ item.url.toString() | clean_class,
           ]
         %}
-
         {% if item.below %}
           {{ link(item.title, item.url, {'class': link_classes|merge(["text-uppercase"]), 'data-bs-toggle': 'dropdown', 'aria-expanded': 'false', 'aria-haspopup': 'true' }) }}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% else %}
-
-          {# ----------------------------------------------------------------------------------- #}
           {# If the item is a "first" (0) level menu (menu that can hold drop down items)        #}
           {% if menu_level == 0 %}
             {{ link(item.title, item.url, {'class': link_classes|merge(["text-uppercase"])}) }}
           {% endif %}
-          {# ----------------------------------------------------------------------------------- #}
-
-
-          {# ----------------------------------------------------------------------------------- #}
           {# If the item is a "second" (1) level menu (menu that is inside the first level menu) #}
           {% if menu_level == 1 %}
             <a class="card link-item-card border-0 rounded-0 col" href="{{item.url}}">
@@ -80,10 +47,7 @@
                 </div>
             </a>
           {% endif %}
-          {# ----------------------------------------------------------------------------------- #}
-
         {% endif %}
-
       </li>
     {% endfor %}
     </ul>
