@@ -89,23 +89,13 @@
     </ul>
   {% endif %}
 {% endmacro %}
-
-
-<style>
-
-
-
-
-
-</style>
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', function() {
-        var elements_link = document.querySelectorAll('a.nav-link dropdown-toggle.show');
-        for (var i = 0; i < elements_link.length; i++) { elements_link[i].classList.remove('show');}
-        var elements_cont = document.querySelectorAll('ul.dropdown-menu.link-item-card-container.show');
-        for (var i = 0; i < elements_cont.length; i++) { elements_cont[i].classList.remove('show');}
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            var elements_link = document.querySelectorAll('a.nav-link dropdown-toggle.show');
+            for (var i = 0; i < elements_link.length; i++) { elements_link[i].classList.remove('show');}
+            var elements_cont = document.querySelectorAll('ul.dropdown-menu.link-item-card-container.show');
+            for (var i = 0; i < elements_cont.length; i++) { elements_cont[i].classList.remove('show');}
+        });
     });
-});
 </script>
