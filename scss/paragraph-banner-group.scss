@@ -1,85 +1,70 @@
 $banner-padding-inline: 100px;
 $banner-padding-block:  30px;
 $banner-body-lines: 6;
-
-
-.carousel-item > .background-layer{
-	padding-inline: $banner-padding-inline;
-	padding-block:  $banner-padding-block;
-    background:     var(--bs-primary);
-    color:          var(--bb-primary-text);
-}
-.carousel-item .banner-body{
-    overflow: hidden;
-    max-width: 100%;
-    display: -webkit-box;
-    -webkit-line-clamp: $banner-body-lines;
-    -webkit-box-orient: vertical;
-    margin: 20px auto;
-}
-
-
-.carousel-control-next, .carousel-control-prev{
-    width: 5%;
-}
-
-
-.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container{
-    // position: absolute;
-    // width: 100%;
-    // top: 10%;
-    // bottom: 10%;
-    height: 100%;
-    padding: 0px;
-    background: white;
-    color: black;
-}
-
-.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-title{
-    // margin-top: 30px;
-    padding-top: 30px;
-    text-align: center;
-    // width: 100%;
-
-}
-.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer .container .banner-body{
-    padding-inline: 20px;
-    text-align: center;
-    // width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* for Webkit-based browsers like Chrome and Safari */
-    -webkit-box-orient: vertical;
-}
-.paragraph--type--banner-group .background-layer{
-    margin-inline: 0px;
-}
-.paragraph--type--banner-group .background-layer .container.col-lg-7{
-	margin-inline: 0px;
-}
-
-
-
-// The button circle indicator
-.paragraph--type--banner-group .carousel-indicators {
-	margin-bottom: 0px;
-    button[data-bs-target]{
-        width:         7px;
-        height:        7px;
-        border-radius: 7px;
-        border:        0px;
-        margin-bottom: 10px;
+.paragraph--type--banner-group{
+    // Hide the controller
+    .carousel-control-prev,.carousel-control-next{
+        display: none;
+        width: 5%;
+    }
+    // The button circle indicator
+    .carousel-indicators {
+        margin-bottom: 0px;
+        button[data-bs-target]{
+            width:         7px;
+            height:        7px;
+            border-radius: 7px;
+            border:        0px;
+            margin-bottom: 10px;
+        }
+    }
+    // Carousel item (banner items)
+    .carousel-inner {
+        .carousel-item{
+            .background-layer{
+                padding-inline: $banner-padding-inline;
+                padding-block:  $banner-padding-block;
+                background:     var(--bs-primary);
+                color:          var(--bb-primary-text);
+                margin-inline: 0px;
+                padding-inline: 30px;
+                background-repeat: no-repeat !important;
+                background-size: cover !important;
+                .container.col-lg-7{
+                    margin-inline: 0px;
+                }
+                .container{
+                    height: 100%;
+                    padding: 0px;
+                    background: white;
+                    color: black;
+                    .banner-title{
+                        padding-top: 30px;
+                        text-align: center;
+                    }
+                    .banner-body{
+                        overflow: hidden;
+                        max-width: 100%;
+                        display: -webkit-box;
+                        -webkit-line-clamp: $banner-body-lines;
+                        -webkit-box-orient: vertical;
+                        margin: 20px auto;
+                        padding-inline: 20px;
+                        text-align: center;
+                        // width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4; /* for Webkit-based browsers like Chrome and Safari */
+                        -webkit-box-orient: vertical;
+                    }
+                }
+            }
+        }
     }
 }
 
-// Hide the controller
-.paragraph--type--banner-group .carousel-control-prev,.carousel-control-next{
-    display: none;
-}
-.paragraph--type--banner-group .carousel-inner .carousel-item .background-layer{
-    padding-inline: 30px;
-}
+
 
 // Mobile banner
 @media (max-width: 991px){
@@ -95,3 +80,5 @@ $banner-body-lines: 6;
 		background: unset;
 	}
 }
+
+
