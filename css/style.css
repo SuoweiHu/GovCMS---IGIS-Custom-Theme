@@ -175,7 +175,12 @@ a :hover, .link :hover {
     right: calc((100vw - 934px) / 2);
   }
 }
-@media (max-width: 991px) and (min-width: 576px) {
+@media (max-width: 991px) and (min-width: 768px) {
+  button.navbar-toggler {
+    right: calc((100vw - 694px) / 2);
+  }
+}
+@media (max-width: 767px) and (min-width: 576px) {
   button.navbar-toggler {
     right: calc((100vw - 514px) / 2);
   }
@@ -190,7 +195,12 @@ a :hover, .link :hover {
     left: calc((100vw - 934px) / 2);
   }
 }
-@media (max-width: 991px) and (min-width: 576px) {
+@media (max-width: 991px) and (min-width: 768px) {
+  header#header > nav#navbar-main > a.navbar-brand {
+    left: calc((100vw - 694px) / 2);
+  }
+}
+@media (max-width: 767px) and (min-width: 576px) {
   header#header > nav#navbar-main > a.navbar-brand {
     left: calc((100vw - 514px) / 2);
   }
@@ -206,7 +216,13 @@ a :hover, .link :hover {
     left: calc((100vw - 934px) / 2 * 1);
   }
 }
-@media (max-width: 991px) and (min-width: 576px) {
+@media (max-width: 991px) and (min-width: 768px) {
+  header#header > nav#navbar-main ul.navbar-nav.container {
+    width: 694px;
+    left: calc((100vw - 694px) / 2 * 1);
+  }
+}
+@media (max-width: 767px) and (min-width: 576px) {
   header#header > nav#navbar-main ul.navbar-nav.container {
     width: 514px;
     left: calc((100vw - 514px) / 2 * 1);
@@ -216,6 +232,14 @@ a :hover, .link :hover {
   header#header > nav#navbar-main ul.navbar-nav.container {
     width: 100%;
     left: 12px;
+  }
+}
+@media (max-width: 1199px) {
+  header#header:has(div.navbar-collapse.collapse.show) + div#main-wrapper {
+    display: none;
+  }
+  header#header:has(div.navbar-collapse.collapse.show) + div#main-wrapper + footer.site-footer {
+    display: none;
   }
 }
 @media (max-width: 1199px) {
@@ -301,6 +325,35 @@ a :hover, .link :hover {
   }
   header#header > nav#navbar-main div.navbar-collapse ul.clearfix.nav.navbar-nav.container li.nav-item.dropdown ul.dropdown-menu.link-item-card-container li.dropdown-item a.card div.card-body p.card-text {
     display: none;
+  }
+}
+@media (max-width: 575px) {
+  header#header > nav#navbar-main {
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header#header > nav#navbar-main a.navbar-brand {
+    display: inline-block;
+    position: block;
+    left: 0px;
+    flex-basis: calc(100% - 50px - 20px);
+    flex-shrink: 1;
+  }
+  header#header > nav#navbar-main a.navbar-brand img {
+    height: auto;
+  }
+  header#header > nav#navbar-main > button.navbar-toggler {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 50px;
+    display: inline-block;
+    left: 0px;
+    right: 0px;
+    top: 0px;
   }
 }
 footer.site-footer {

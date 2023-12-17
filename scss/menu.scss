@@ -1,5 +1,5 @@
 // ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
-// Desktop Menu
+// Desktop Menu (≥1200px)
 @media (min-width:1200px){
     nav#navbar-main {
         display: flex;
@@ -117,18 +117,34 @@
 @media (min-width:1200px) and (max-width:1399px) { nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 12px);}}
 @media (min-width:1400px) {                        nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 12px);}}
 
+
+
+
 // ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
-// Mobile menu
+// Mobile menu (≥576px)
 @media (max-width:  1199px)  and (min-width: 992px)  { button.navbar-toggler {right: calc((100vw - 934px) / 2);} }
-@media (max-width:   991px)  and (min-width: 576px)  { button.navbar-toggler {right: calc((100vw - 514px) / 2);} }
+@media (max-width:   991px)  and (min-width: 768px)  { button.navbar-toggler {right: calc((100vw - 694px) / 2);} }
+@media (max-width:   767px)  and (min-width: 576px)  { button.navbar-toggler {right: calc((100vw - 514px) / 2);} }
 @media (max-width:   575px)                          { button.navbar-toggler {right: 12px;}                      }
 @media (max-width:  1199px)  and (min-width: 992px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 934px) / 2);} }
-@media (max-width:   991px)  and (min-width: 576px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 514px) / 2);} }
+@media (max-width:   991px)  and (min-width: 768px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 694px) / 2);} }
+@media (max-width:   767px)  and (min-width: 576px)  { header#header > nav#navbar-main > a.navbar-brand {left: calc((100vw - 514px) / 2);} }
 @media (max-width:   575px)                          { header#header > nav#navbar-main > a.navbar-brand {left: 12px;}                      }
 @media (max-width:  1199px)  and (min-width: 992px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 934px; left: calc( (100vw - 934px) / 2 * (+1));} }
-@media (max-width:   991px)  and (min-width: 576px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 514px; left: calc( (100vw - 514px) / 2 * (+1));} }
+@media (max-width:   991px)  and (min-width: 768px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 694px; left: calc( (100vw - 694px) / 2 * (+1));} }
+@media (max-width:   767px)  and (min-width: 576px)  { header#header > nav#navbar-main ul.navbar-nav.container {width: 514px; left: calc( (100vw - 514px) / 2 * (+1));} }
 @media (max-width:   575px)                          { header#header > nav#navbar-main ul.navbar-nav.container {width: 100%;  left: 12px;}                              }
-@media (max-width:  1199px)                          {
+@media (max-width:  1199px) {
+    // Hide page content and footer, when the menu gets expanded
+    header#header:has(div.navbar-collapse.collapse.show) + div#main-wrapper {
+        display: none;
+    }
+    // Hide page content and footer, when the menu gets expanded
+    header#header:has(div.navbar-collapse.collapse.show) + div#main-wrapper + footer.site-footer {
+        display: none;
+    }
+}
+@media (max-width:  1199px) {
     header#header > nav#navbar-main{
         padding-top: 30px;
         padding-bottom: 20px;
@@ -230,5 +246,39 @@
     }
 }
 
-// ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Mobile menu (≤575px)
+
+@media (max-width: 575px) {
+	header#header > nav#navbar-main {
+		display: flex;
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+		justify-content: space-between;
+		// flex-wrap: nowrap;
+		align-items: center;
+	}
+	header#header > nav#navbar-main a.navbar-brand {
+		display: inline-block;
+		position: block;
+		left: 0px;
+		flex-basis: calc(100% - 50px - 20px);
+		flex-shrink: 1;
+	}
+	header#header > nav#navbar-main a.navbar-brand img{
+		height: auto;
+	}
+	header#header > nav#navbar-main >  button.navbar-toggler {
+		flex-shrink: 0;
+		flex-grow:   0;
+		flex-basis: 50px;
+		display: inline-block;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+	}
+}
