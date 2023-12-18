@@ -370,3 +370,17 @@ div#block-igis-searchform {
     }
 }
 
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Search Bar for mobile
+@media (max-width: 1199px) {
+    #block-igis-searchform {
+        position: absolute;
+        top: 140px;
+    }
+    #block-igis-main-navigation{
+        margin-top: 60px;
+    }
+}
+
