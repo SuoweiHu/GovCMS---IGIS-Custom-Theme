@@ -8,7 +8,7 @@
     {% elseif menu_level == 1 %}
       <ul class="dropdown-menu link-item-card-container border-0 rounded-0">
     {% else %}
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu d-none hidden-menu">
     {% endif %}
     {% for item in items %}
       {%
@@ -56,9 +56,9 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', function() {
-            var elements_link = document.querySelectorAll('a.nav-link dropdown-toggle.show');
+            var elements_link = document.querySelectorAll('header#header a.nav-link dropdown-toggle.show');
             for (var i = 0; i < elements_link.length; i++) { elements_link[i].classList.remove('show');}
-            var elements_cont = document.querySelectorAll('ul.dropdown-menu.link-item-card-container.show');
+            var elements_cont = document.querySelectorAll('header#header ul.dropdown-menu.link-item-card-container.show');
             for (var i = 0; i < elements_cont.length; i++) { elements_cont[i].classList.remove('show');}
         });
     });
