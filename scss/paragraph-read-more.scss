@@ -1,38 +1,44 @@
+$readmore-text-collapsed:                 '+ Read More';
+$readmore-text-expanded:                  '- Read Less';
+$readmore-max-lines:                      var(--read-moreshow-lines);
+$readmore-button-default-background:      var(--bs-link-color);
+$readmore-button-hover-background:        var(--bs-link-hover-color);
+$readmore-button-default-foreground:      white;
+$readmore-button-hover-foreground:        rgb(216, 216, 216);
+
 .paragraph--type--read-more .read-more-summary {
     font-size: 14px;
     line-height: 1.5;
     div.collapse:not(.show) {
         line-height: 1.5;
-        height: calc(var(--read-moreshow-lines) * 1.5em) !important;
+        height: calc($readmore-max-lines * 1.5em) !important;
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: var(--read-moreshow-lines);
+        -webkit-line-clamp: $readmore-max-lines;
         -webkit-box-orient: vertical;
     }
     div.collapsing {
         line-height: 1.5;
-        min-height: calc(var(--read-moreshow-lines) * 1.5em) !important;
+        min-height: calc($readmore-max-lines * 1.5em) !important;
     }
     a.collapsed:after {
-        content: '+ Read More';
+        content: $readmore-text-collapsed;
     }
     a:not(.collapsed):after {
-        content: '- Read Less';
+        content: $readmore-text-expanded;
     }
 }
-
 .read-more-summary {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 }
-
 .read-more-summary a {
     margin-top: 10px;
 	text-align: right;
-	color: white;
-	background: var(--bs-link-color);
+	color: $readmore-button-default-foreground;
+	background: $readmore-button-default-background;
 	border: var(--bs-border-width) var(--bs-border-style) var(--bs-link-color);
 	border-radius: var(--bs-border-radius);
 	padding-block:  5px;
@@ -40,19 +46,15 @@
 	width:fit-content;
 	text-decoration: none;
 }
-
 .read-more-summary a:hover {
-	background: var(--bs-link-hover-color);
+    color: $readmore-button-default-foreground;
+	background: $readmore-button-hover-background;
 	border: var(--bs-border-width) var(--bs-border-style) var(--bs-link-hover-color);
 }
-
-
-
 .read-more-summary .collapse.show+.fade-overlay{
 	height:      0px;
 	margin-top:  0px;
 }
-
 .read-more-summary .collapse:not(.show)+.fade-overlay, .read-more-summary .collapsing+.fade-overlay{
 	height:      60px;
 	margin-top: -60px;

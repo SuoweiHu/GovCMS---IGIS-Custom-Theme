@@ -1,3 +1,9 @@
+$attachment-hover-background-color: #e8e8e8;
+$attachment-hover-foreground-color: white;
+$attachment-default-background-color: var(--bs-primary);
+$attachment-default-foreground-color: var(--bs-body-color);
+
+
 span.file {
     div.file-link a      { transition: color ease-in-out 0.25s; }
     div.file-link        { height: 100%;                        }
@@ -21,14 +27,14 @@ span.file {
     min-height:        12px;
 }
 .paragraph.paragraph--type--attachment-file.file:hover{
-	background: var(--bs-primary);
+	background: $attachment-default-background-color;
 }
 .d-inline-block.text-truncate {
-	color: var(--bs-body-color);
+	color:$attachment-default-foreground-color;
 	transition: color 0.25s ease-in-out;
 }
 .paragraph.paragraph--type--attachment-file.file:hover .d-inline-block.text-truncate{
-	color:white !important;
+	color:$attachment-hover-foreground-color !important;
 }
 
 .paragraph--type--attachment-file {
@@ -48,12 +54,9 @@ span.file {
 	align-self: flex-end;
 	justify-self: flex-end;
 }
-
-
 .paragraph-file-attachment-link-item > a {
 	text-decoration: none;
 }
-
 @media (max-width: 767px) {
     .paragraph-file-attachment-link > a > span.file div.file-type-size{
         display: none !important;
@@ -63,7 +66,6 @@ span.file {
         flex-grow: 1;
     }
 }
-
 .paragraph.paragraph--type--attachment-file.paragraph--view-mode--default.file:not(:hover) {
-	background: #e8e8e8;
+	background: $attachment-hover-background-color;
 }

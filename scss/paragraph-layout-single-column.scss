@@ -1,12 +1,12 @@
-$image-under-text-padding-inline: 30px;
-$image-under-text-padding-block: 30px;
-$image-under-text-container-height: 400px;
-$image-above-text-padding-inline: 10px;
-$image-above-text-padding-block: 30px;
-$color-under-text-padding-block: 30px;
-$color-under-text-padding-inline: 30px;
-$color-under-text-default-color-background: #35737A;
-$color-under-text-default-color-foreground: #000;
+$image-under-text-padding-inline:             30px;
+$image-under-text-padding-block:              30px;
+$image-under-text-container-height:           400px;
+$image-above-text-padding-inline:             10px;
+$image-above-text-padding-block:              30px;
+$color-under-text-padding-block:              30px;
+$color-under-text-padding-inline:             30px;
+$color-under-text-default-color-background:   var(--bs-primary);
+$color-under-text-default-color-foreground: black;
 
 .image-under-text {
     position: relative;

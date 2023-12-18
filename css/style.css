@@ -55,7 +55,7 @@ a :hover, .link :hover {
     margin-bottom: 0.75em;
   }
   header#header nav#navbar-main .navbar-collapse ul.navbar-nav li.nav-item a {
-    color: #FFF;
+    color: white;
     text-decoration: none;
     text-align: left;
   }
@@ -457,7 +457,7 @@ div#block-igis-searchform form#search-block-form div.form-actions input:hover {
   }
 }
 footer.site-footer {
-  background: #414042;
+  background: #35737A;
   padding-block: 1em;
 }
 footer.site-footer div.container {
@@ -566,7 +566,7 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
 }
 .image-under-text .card-img-overlay {
   overflow: hidden;
-  color: #000;
+  color: black;
 }
 
 .image-above-text .text {
@@ -577,8 +577,8 @@ footer.site-footer div.container div.site-footer__top section div#block-igis-foo
 .color-under-text {
   padding-inline: 30px;
   padding-block: 30px;
-  background: #35737A;
-  color: #000;
+  background: var(--bs-primary);
+  color: black;
 }
 
 .paragraph-single-column-parallax {
@@ -742,13 +742,13 @@ h2.accordion-header > .accordion-button::after {
 }
 
 .accordion-item > div.accordion-collapse {
-  -webkit-transition-duration: var(--accordion-animation-time, 0.35s) !important;
-  transition-duration: var(--accordion-animation-time, 0.35s) !important;
+  -webkit-transition-duration: var(--accordion-animation-time, 0.34s) !important;
+  transition-duration: var(--accordion-animation-time, 0.34s) !important;
 }
 
 .accordion-item > div.accordion-collapse.show {
-  -webkit-transition-duration: var(--accordion-animation-time, 0.35s) !important;
-  transition-duration: var(--accordion-animation-time, 0.35s) !important;
+  -webkit-transition-duration: var(--accordion-animation-time, 0.34s) !important;
+  transition-duration: var(--accordion-animation-time, 0.34s) !important;
 }
 
 span.file {
@@ -876,6 +876,7 @@ span.file div.file-type-size {
 }
 
 .read-more-summary a:hover {
+  color: white;
   background: var(--bs-link-hover-color);
   border: var(--bs-border-width) var(--bs-border-style) var(--bs-link-hover-color);
 }

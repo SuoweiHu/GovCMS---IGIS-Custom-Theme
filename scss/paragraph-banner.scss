@@ -1,6 +1,11 @@
-$banner-padding-inline: 100px;
-$banner-padding-block:  30px;
-$banner-body-lines: 6;
+$banner-padding-inline:                100px;
+$banner-padding-block:                 30px;
+$banner-body-lines:                    6;
+$banner-background-color:              var(--bs-primary);
+$banner-foreground-color:              var(--bb-primary-text);
+$banner-inner-card-background-color:   white;
+$banner-inner-card-foreground-color:   black;
+
 .paragraph--type--banner-group{
     // Hide the controller
     .carousel-control-prev,.carousel-control-next{
@@ -22,22 +27,22 @@ $banner-body-lines: 6;
     .carousel-inner {
         .carousel-item{
             .background-layer{
-                padding-inline: $banner-padding-inline;
-                padding-block:  $banner-padding-block;
-                background:     var(--bs-primary);
-                color:          var(--bb-primary-text);
-                margin-inline: 0px;
-                padding-inline: 30px;
+                padding-inline:    $banner-padding-inline;
+                padding-block:     $banner-padding-block;
+                background:        $banner-background-color;
+                color:             $banner-foreground-color;
+                margin-inline:     0px;
+                padding-inline:    30px;
                 background-repeat: no-repeat !important;
-                background-size: cover !important;
+                background-size:   cover !important;
                 .container.col-lg-7{
                     margin-inline: 0px;
                 }
                 .container{
-                    height: 100%;
-                    padding: 0px;
-                    background: white;
-                    color: black;
+                    height:         100%;
+                    padding:        0px;
+                    background:     $banner-inner-card-background-color;
+                    color:          $banner-inner-card-foreground-color;
                     .banner-title{
                         padding-top: 30px;
                         text-align: center;

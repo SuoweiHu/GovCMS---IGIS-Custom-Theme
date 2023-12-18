@@ -1,5 +1,11 @@
 /** @format */
 
+
+$popup-default-background-color: var(--bs-link-color);
+$popup-default-foreground-color: var(--bs-link-color);
+$popup-hover-background-color:   var(--bs-link-hover-color);
+$popup-hover-foreground-color:   var(--bs-link-hover-color);
+
 .popup-container {
 	border: 5px solid black !important;
 	padding: 10px;
@@ -92,8 +98,8 @@ div.popup-container button.btn.btn-popup-trigger{
 	transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 div.popup-container button.btn.btn-popup-trigger:hover{
-	background:   var(--bs-link-hover-color);
-	border-color: var(--bs-link-hover-color);
+	background:   $popup-hover-background-color;
+	border-color: $popup-hover-background-color;
 	box-shadow: -4px 4px 4px rgba(0,0,0,0.2)
 }
 
@@ -103,7 +109,7 @@ div.popup-container{
 }
 
 div.popup-container:has(button.btn.btn-popup-trigger:hover){
-	border-color: var(--bs-link-hover-color) !important;
+	border-color: $popup-hover-background-color !important;
     box-shadow: -4px 4px 4px rgba(0,0,0,0.2)
 }
 
