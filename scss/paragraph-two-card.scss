@@ -21,6 +21,8 @@
     .cards-columns-container{
         padding-top:    30px;
         padding-bottom: 30px;
+        .cards-column-1 { padding-left: 0px; padding-right: 8px; }
+        .cards-column-2 { padding-left: 8px; padding-right: 0px; }
         .cards-column .card {
             border-radius: 3px;
             border: none;
