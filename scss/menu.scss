@@ -1,7 +1,7 @@
 // ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 // Desktop Menu (≥1200px)
 @media (min-width:1200px){
-    nav#navbar-main {
+    header#header nav#navbar-main {
         display: flex;
         flex-direction: column;
         background: white;
@@ -40,7 +40,7 @@
     }
 }
 @media (min-width:1200px){
-    nav.menu--main {
+    header#header nav.menu--main {
         ul.clearfix.nav.navbar-nav.container   { z-index: 999; }
         ul.clearfix.nav.navbar-nav.container * { z-index: 999; }
         ul.navbar-nav {
@@ -112,10 +112,10 @@
         }
     }
 }
-@media (min-width:1200px) and (max-width:1399px) {nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1116px) / 2); }}
-@media (min-width:1400px) {                       nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1296px) / 2); }}
-@media (min-width:1200px) and (max-width:1399px) { nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 12px);}}
-@media (min-width:1400px) {                        nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 12px);}}
+@media (min-width:1200px) and (max-width:1399px) { header#header nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1116px) / 2); }}
+@media (min-width:1400px) {                        header#header nav#navbar-main .navbar-brand{ padding-inline:calc( (100% - 1296px) / 2); }}
+@media (min-width:1200px) and (max-width:1399px) { header#header nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 12px);}}
+@media (min-width:1400px) {                        header#header nav.menu--main ul.navbar-nav::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 12px);}}
 
 
 
@@ -309,8 +309,8 @@ div#block-igis-searchform.show{
 
 // ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 // Search Menu - General Styling
-.collapse.navbar-collapse.justify-content-end { flex-direction: column; }
-.collapse.navbar-collapse.justify-content-end >.form-inline.navbar-form.justify-content-end { width: 100%; }
+header#header nav#navbar-main .collapse.navbar-collapse.justify-content-end { flex-direction: column; }
+header#header nav#navbar-main .collapse.navbar-collapse.justify-content-end >.form-inline.navbar-form.justify-content-end { width: 100%; }
 @media (min-width:1200px) and (max-width:1399px) { div#block-igis-searchform::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 24px);}}
 @media (min-width:1400px) {                        div#block-igis-searchform::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 24px);}}
 div#block-igis-searchform {
