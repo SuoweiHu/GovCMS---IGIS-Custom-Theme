@@ -9,6 +9,9 @@ global-styling:
 popper:
   js:
     js/popper.js: {}
+menu-search-toggle:
+  js:
+    js/menu-search-toggle.js: {}
 popout:
   js:
     js/popout.js: {}

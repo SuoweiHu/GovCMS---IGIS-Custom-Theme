@@ -282,3 +282,91 @@
 		top: 0px;
 	}
 }
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Search Menu - Hide/show
+// # div#block-igis-searchform{height: 0px;overflow: hidden;}
+// # div#block-igis-searchform:focus{height: unset;overflow: visible;}
+// # div#block-igis-searchform:focus-within{ height: unset; overflow: visible; }
+
+div#block-igis-searchform{
+	height: 0px;
+	overflow: hidden;
+}
+div#block-igis-searchform.show{
+	height: unset;
+	overflow: visible;
+}
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Search Menu - General Styling
+.collapse.navbar-collapse.justify-content-end { flex-direction: column; }
+.collapse.navbar-collapse.justify-content-end >.form-inline.navbar-form.justify-content-end { width: 100%; }
+@media (min-width:1200px) and (max-width:1399px) { div#block-igis-searchform::before{ left:calc( (100vw - 1116px) / 2 * (-1)  + 24px);}}
+@media (min-width:1400px) {                        div#block-igis-searchform::before{ left:calc( (100vw - 1296px) / 2 * (-1)  + 24px);}}
+div#block-igis-searchform {
+    width: 100%;
+    &::before {
+        height: 100%;
+        width:  100vw;
+        position: absolute;
+        display: block;
+        background: #255256;
+        content: "";
+        font-size: 25px;
+        z-index: 1;
+    }
+    .content.container-inline{
+        width: 100%;
+    }
+    form#search-block-form{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        div.form-type-search{
+            // max-width:     820px;
+            // width:         100%;
+            flex-grow:     1;
+            margin-top:    10px !important;
+            margin-bottom: 10px !important;
+            margin-right:  15px;
+            z-index:       3;
+            input{
+                border-radius: 0px;
+                border: 1px solid #ced4da;
+                transition: all 0.2s ease-in-out;
+                &:focus{
+                    background: #ced4da;
+                    border: 1px solid black;
+                }
+            }
+        }
+        div.form-actions{
+            flex-basis:    100px;
+            flex-grow:     0;
+            margin-top:    10px !important;
+            margin-bottom: 10px !important;
+            margin-right:  15px;
+            z-index:       3;
+            input{
+                border-radius: 0px;
+                position: absolute;
+                width: 90px;
+                top: 15px;
+                transition: all 0.2s ease-in-out;
+                background: white;
+                color: black;
+                border: 1px solid #ced4da;
+                &:hover{
+                    border: 1px solid black;
+                    background: #ced4da;
+                }
+            }
+        }
+    }
+}
+

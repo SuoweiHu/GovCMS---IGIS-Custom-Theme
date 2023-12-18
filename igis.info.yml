@@ -12,6 +12,7 @@ libraries:
   - igis/bcSwipe
   - igis/tooltip
   - igis/popout
+  - igis/menu-search-toggle
 
 regions:
   top_header: 'Top header'
