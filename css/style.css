@@ -359,11 +359,12 @@ a :hover, .link :hover {
 div#block-igis-searchform {
   height: 0px;
   overflow: hidden;
+  transition: height 0.2s ease-in-out;
 }
 
 div#block-igis-searchform.show {
-  height: unset;
-  overflow: visible;
+  height: 70px;
+  transition: height 0.2s ease-in-out;
 }
 
 .collapse.navbar-collapse.justify-content-end {
