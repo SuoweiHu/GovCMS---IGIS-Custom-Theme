@@ -427,3 +427,16 @@ div#block-igis-searchform {
 @media (min-width:1200px) and (max-width:1399px) { #block-igis-main-navigation + div::before{ left: calc((100vw - 1116px) / 2 * (-1) + 12px);}}
 @media (min-width:1400px) {                        #block-igis-main-navigation + div::before{ left: calc((100vw - 1296px) / 2 * (-1) + 12px);}}
 
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Search bar mobile animation
+@media (max-width:1199px){
+    nav#block-igis-main-navigation{
+        margin-top: 40px;
+        transition: all 0.2s ease-in-out;
+    }
+    nav#block-igis-main-navigation:has(+ div #block-igis-searchform.show){
+        margin-top: 100px
+    }
+}
