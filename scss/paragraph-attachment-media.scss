@@ -1,0 +1,97 @@
+$attachment-hover-background-color: #e8e8e8;
+$attachment-hover-foreground-color: white;
+$attachment-default-background-color: var(--bs-primary);
+$attachment-default-foreground-color: var(--bs-body-color);
+
+
+span.file {
+    div.file-link a      { transition: color ease-in-out 0.25s; }
+    div.file-link        { height: 100%;                        }
+    div.file-type        { height: 100%;                        }
+    div.file-size        { height: 100%;                        }
+    div.file-type-size   { width:  200px;                       }
+    background-position: 5px calc(35% + 2px);
+    padding-left:        40px;
+    padding-right:       20px;
+    padding-top:         5px;
+	margin-bottom:       5px;
+}
+
+
+.paragraph.paragraph--type--attachment-media.file{
+	border-radius:     var(--bs-border-radius);
+	padding-top:       10px;
+	padding-bottom:    0px;
+	margin-bottom:     0px;
+    transition:        background 0.25s ease-in-out;
+    min-height:        12px;
+}
+.paragraph.paragraph--type--attachment-media.file:hover, .paragraph.paragraph--type--attachment-media.file:focus-within{
+	background: $attachment-default-background-color;
+}
+.d-inline-block.text-truncate {
+	color:$attachment-default-foreground-color;
+	transition: color 0.25s ease-in-out;
+}
+.paragraph.paragraph--type--attachment-media.file:hover .d-inline-block.text-truncate{
+	color:$attachment-hover-foreground-color !important;
+}
+
+.paragraph--type--attachment-media {
+	width: 100%;
+}
+
+.paragraph-file-attachment-link > a > span.file{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	padding-bottom: 6px;
+}
+.paragraph-file-attachment-link > a > span.file div.file-type-size{
+	flex-grow: 1;
+	text-align: right;
+	align-self: flex-end;
+	justify-self: flex-end;
+}
+.paragraph-file-attachment-link-item > a {
+	text-decoration: none;
+}
+@media (max-width: 767px) {
+    .paragraph-file-attachment-link > a > span.file div.file-type-size{
+        display: none !important;
+    }
+    .paragraph-file-attachment-link > a > span.file div.file-link{
+        text-align: left;
+        flex-grow: 1;
+    }
+}
+.paragraph.paragraph--type--attachment-media.paragraph--view-mode--default.file:not(:hover) {
+	background: $attachment-hover-background-color;
+}
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+// span.paragraph.paragraph--type--attachment-media.paragraph--view-mode--default.file.file- {
+//  padding-top: 0px !important;
+//  padding-bottom: 10px;
+//  margin-bottom: 10px;
+// }
+
+div.paragraph.paragraph--type--attachment-media.paragraph--view-mode--default.file.file-{
+    margin-bottom: 10px;
+}
+
+div.paragraph.paragraph--type--attachment-media.paragraph--view-mode--default.file.file-{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+span.paragraph.paragraph--type--attachment-media.paragraph--view-mode--default.file.file-{
+	padding-bottom: 10px;
+}
+
+

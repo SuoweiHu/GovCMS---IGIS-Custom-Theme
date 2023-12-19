@@ -3,33 +3,57 @@
 
 
 
-{% set file_name = content.field_attachment_name.0["#context"].value                                      %}
 {% if not content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url == null         %}
-    {% set file_url  = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url                             %}
-    {% set file_type = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url | split('.')|last           %}
-    {% set file_size = content.field_attachment_media.0["#media"].field_media_image.0.entity.filesize.0.value / 1000   ~ " KB"     %}
+    {% set file_url          = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url                             %}
+    {% set file_name_suffix  = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url | split('.')|last           %}
+    {% set file_name_prefix  = content.field_attachment_name.0["#context"].value                                                           %}
+    {% set file_size         = content.field_attachment_media.0["#media"].field_media_image.0.entity.filesize.0.value / 1000   ~ " KB"     %}
+    {% set file_mime         = "image"                                                                                                     %}
 {% elseif not content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url == null %}
-    {% set file_url  = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url                        %}
-    {% set file_type = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url | split('.')|last      %}
-    {% set file_size = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+    {% set file_url          = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url                        %}
+    {% set file_name_suffix  = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url | split('.')|last      %}
+    {% set file_name_prefix  = content.field_attachment_name.0["#context"].value                                                           %}
+    {% set file_size         = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+    {% set file_mime         = "video"                                                                                                     %}
 {% elseif not content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url == null %}
-    {% set file_url  = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url                        %}
-    {% set file_type = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url | split('.')|last      %}
-    {% set file_size = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+    {% set file_url          = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url                        %}
+    {% set file_name_suffix  = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url | split('.')|last      %}
+    {% set file_name_prefix  = content.field_attachment_name.0["#context"].value                                                           %}
+    {% set file_size         = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+    {% set file_mime         = "audio"                                                                                                     %}
 {% elseif not content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url == null   %}
-    {% set file_url  = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url                          %}
-    {% set file_type = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url  | split('.')|last       %}
-    {% set file_size = content.field_attachment_media.0["#media"].field_media_document.0.entity.filesize.0.value / 1000   ~ " KB"  %}
+    {% set file_url          = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url                          %}
+    {% set file_name_suffix  = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url  | split('.')|last       %}
+    {% set file_name_prefix  = content.field_attachment_name.0["#context"].value                                                           %}
+    {% set file_size         = content.field_attachment_media.0["#media"].field_media_document.0.entity.filesize.0.value / 1000   ~ " KB"  %}
+    {% set file_mime         = "document"                                                                                                  %}
 {% endif %}
 
 
 {% block paragraph %}
     <div {{ attributes.addClass(classes).addClass("file").addClass("file-"~filetype|clean_class) }}>
-        ███████████████████████████████████████
-        {{dump(file_name)}}
+        {# ███████████████████████████████████████
         {{dump(file_url)}}
-        {{dump(file_type)}}
+        {{dump(file_name_suffix)}}
+        {{dump(file_name_prefix)}}
         {{dump(file_size)}}
-        ███████████████████████████████████████
+        {{dump(file_mime)}}
+        ███████████████████████████████████████ #}
+
+        <div class="paragraph-file-attachment-link paragraph-file-attachment-link-item">
+            <a href="{{file_url}}" >
+                <span{{ attributes }}>
+                    <div class="file-icon d-block">
+                        {{ icon }}
+                    </div>
+                    <div class="file-link d-inline-block text-truncate" style="">
+                        {{file_name_prefix}}
+                    </div>
+                    {# <div class="file-type d-inline-block text-truncate" style="width: 130px;"> {{ file_name_suffix }} </div> #}
+                    {# <div class="file-size d-inline-block text-truncate" style="width: 100px;"> {{ file_size }}        </div> #}
+                    <div class="file-type-size d-inline-block text-truncate"> {{ file_name_suffix }} |  {{ file_size | lower }}    </div>
+                </span>
+            </a>
+        </div>
     </div>
 {% endblock paragraph %}
