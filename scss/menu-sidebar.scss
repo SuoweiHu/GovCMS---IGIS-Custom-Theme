@@ -18,3 +18,4 @@ div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li::marker   { content:
 div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li > a       { background: var(--sidebar-default-background); color: var(--sidebar-default-foreground);}
 div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li > a:hover { background: var(--sidebar-hover-background);   color: var(--sidebar-hover-foreground);  }
 div#sidebar_first > aside  > nav > ul.nav > li ul.menu                { background: var(--sidebar-default-background);}
+@media (max-width:  1199px){ div#sidebar_first{ display: none;}}

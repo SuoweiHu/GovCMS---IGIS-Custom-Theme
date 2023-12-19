@@ -559,6 +559,11 @@ div#sidebar_first > aside > nav > ul.nav > li ul.menu {
   background: var(--sidebar-default-background);
 }
 
+@media (max-width: 1199px) {
+  div#sidebar_first {
+    display: none;
+  }
+}
 .layout-two-column .card {
   height: 100%;
 }
