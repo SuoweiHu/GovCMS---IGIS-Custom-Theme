@@ -1,0 +1,45 @@
+
+//███████████████████████████████████████
+// This fixes the issue of empty spacing on the left for "two/three cards layout"
+// when the sidebar is opened on the left.
+
+@media (min-width: 1400px){
+    html:has(#sidebar_first) .row.cards-columns-container{
+        position: relative;
+        --filler-width: 110px;
+        padding-right: calc((50% - 50vw) * (-1) - var(--filler-width) ) !important;
+        margin-right:  calc((50% - 50vw) * 1 + var(--filler-width)) !important;
+    }
+    html:has(#sidebar_first) .row.cards-columns-container::before {
+        content: "";
+        top:     0px;
+        height:  100%;
+        // width: var(--filler-width);
+        width: calc(var(--filler-width) + 1px);
+        left: calc(var(--filler-width) * (-1));
+        // background: red;
+        background: var(--three_column_cards_bgbg);
+        position: absolute;
+    }
+}
+
+
+@media (min-width: 1200px) and (max-width: 1399px){
+    html:has(#sidebar_first) .row.cards-columns-container{
+        position: relative;
+        --filler-width: 95px;
+        padding-right: calc((50% - 50vw) * (-1) - var(--filler-width) ) !important;
+        margin-right:  calc((50% - 50vw) * 1 + var(--filler-width)) !important;
+    }
+    html:has(#sidebar_first) .row.cards-columns-container::before {
+        content: "";
+        top:     0px;
+        height:  100%;
+        // width: var(--filler-width);
+        width: calc(var(--filler-width) + 1px);
+        left: calc(var(--filler-width) * (-1));
+        // background: red;
+        background: var(--three_column_cards_bgbg);
+        position: absolute;
+    }
+}
