@@ -1,6 +1,7 @@
 {% set classes                 = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished'] %}
 {% set uniqueId                = random()                                                     %}
 {% set body                    = content.field_accordion_item_body[0]["#text"]                %}
+{% set body_paragraph          = content.field_accordion_paragraph                            %}
 {% set heading                 = content.field_accordion_item_heading[0]["#context"]["value"] %}
 {% set header_color_expanded   = content.field_header_color_expanded[0]["#context"]["value"]  %}
 {% set header_color_collapsed  = content.field_header_color_collapsed[0]["#context"]["value"] %}
@@ -31,6 +32,7 @@
             <div id="accordion-{{uniqueId}}" class="accordion-collapse collapse {{str_expanded_collapsed}}" aria-labelledby="headingOne" style="{{str_animation_time}}">
                 <div class="accordion-body">
                     {{ body | raw }}
+                    {{ body_paragraph }}
                 </div>
             </div>
         </div>
