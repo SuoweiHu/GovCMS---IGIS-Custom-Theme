@@ -1,0 +1,35 @@
+{% set classes   = [ 'paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class, not paragraph.isPublished() ? 'paragraph--unpublished' ] %}
+{% set filetype  = content.field_attachment_file[0]["#file"].filemime.value   %}
+
+
+
+{% set file_name = content.field_attachment_name.0["#context"].value                                      %}
+{% if not content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url == null         %}
+    {% set file_url  = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url                             %}
+    {% set file_type = content.field_attachment_media.0["#media"].field_media_image.0.entity.uri.0.url | split('.')|last           %}
+    {% set file_size = content.field_attachment_media.0["#media"].field_media_image.0.entity.filesize.0.value / 1000   ~ " KB"     %}
+{% elseif not content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url == null %}
+    {% set file_url  = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url                        %}
+    {% set file_type = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.uri.0.url | split('.')|last      %}
+    {% set file_size = content.field_attachment_media.0["#media"].field_media_video_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+{% elseif not content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url == null %}
+    {% set file_url  = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url                        %}
+    {% set file_type = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.uri.0.url | split('.')|last      %}
+    {% set file_size = content.field_attachment_media.0["#media"].field_media_audio_file.0.entity.filesize.0.value / 1000   ~ " KB"%}
+{% elseif not content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url == null   %}
+    {% set file_url  = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url                          %}
+    {% set file_type = content.field_attachment_media.0["#media"].field_media_document.0.entity.uri.0.url  | split('.')|last       %}
+    {% set file_size = content.field_attachment_media.0["#media"].field_media_document.0.entity.filesize.0.value / 1000   ~ " KB"  %}
+{% endif %}
+
+
+{% block paragraph %}
+    <div {{ attributes.addClass(classes).addClass("file").addClass("file-"~filetype|clean_class) }}>
+        ███████████████████████████████████████
+        {{dump(file_name)}}
+        {{dump(file_url)}}
+        {{dump(file_type)}}
+        {{dump(file_size)}}
+        ███████████████████████████████████████
+    </div>
+{% endblock paragraph %}
