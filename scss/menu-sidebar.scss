@@ -1,0 +1,19 @@
+*{
+	--sidebar-default-background: white;
+	--sidebar-hover-background:   #35737A;
+	--sidebar-default-foreground: black;
+	--sidebar-hover-foreground:   white;
+}
+
+// div#sidebar_first                                                     { /* border: 5px solid #830000 !important;*/ background: #F1F1F1; z-index: 998;}
+// div#sidebar_first > aside                                             { /* border: 5px solid #d10000 !important;*/ --x:1;}
+div#sidebar_first > aside  > nav                                      { /* border: 5px solid #ee0303 !important;*/ margin-bottom: 0px; padding: 0px; }
+div#sidebar_first > aside  > nav > h2                                 { display: none; }
+div#sidebar_first > aside  > nav > ul.nav > li                        { flex-grow: 1;  }
+div#sidebar_first > aside  > nav > ul.nav > li > a                    { background: var(--sidebar-default-background); color: var(--sidebar-default-foreground);}
+div#sidebar_first > aside  > nav > ul.nav > li > a:hover              { background: var(--sidebar-hover-background);   color: var(--sidebar-hover-foreground);  }
+div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li           { padding-left: 0px; }
+div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li::marker   { content: ''; }
+div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li > a       { background: var(--sidebar-default-background); color: var(--sidebar-default-foreground);}
+div#sidebar_first > aside  > nav > ul.nav > li ul.menu > li > a:hover { background: var(--sidebar-hover-background);   color: var(--sidebar-hover-foreground);  }
+div#sidebar_first > aside  > nav > ul.nav > li ul.menu                { background: var(--sidebar-default-background);}
