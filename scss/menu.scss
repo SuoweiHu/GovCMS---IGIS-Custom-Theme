@@ -1,3 +1,12 @@
+@media (max-width:  1199px){
+    header#header nav#navbar-main ul.nav.navbar-nav.container[container-type="desktop"]  {display: none;}
+    header#header nav#navbar-main ul.nav.navbar-nav.container[container-type="mobile"]   {display: flex;}
+}
+@media (min-width:  1200px){
+    header#header nav#navbar-main ul.nav.navbar-nav.container[container-type="desktop"]  {display: flex;}
+    header#header nav#navbar-main ul.nav.navbar-nav.container[container-type="mobile"]   {display: none;}
+}
+
 // ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 // Desktop Menu (≥1200px)
 @media (min-width:1200px){
@@ -390,4 +399,31 @@ div#block-igis-searchform {
         margin-top: 60px;
     }
 }
+
+
+
+// ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+// Fixing search component missing background in mobile
+
+@media (min-width:1200px){
+    div#block-igis-searchform {
+        overflow: hidden;
+    }
+    #block-igis-main-navigation + div{
+        position: relative;
+    }
+    #block-igis-main-navigation + div::before {
+        height: 100%;
+        width:  100vw;
+        position: absolute;
+        display: block;
+        background: $header-nav-search-background;
+        content: "";
+        font-size: 25px;
+        z-index: 1;
+        background: #255257;
+    }
+}
+@media (min-width:1200px) and (max-width:1399px) { #block-igis-main-navigation + div::before{ left: calc((100vw - 1116px) / 2 * (-1) + 12px);}}
+@media (min-width:1400px) {                        #block-igis-main-navigation + div::before{ left: calc((100vw - 1296px) / 2 * (-1) + 12px);}}
 
