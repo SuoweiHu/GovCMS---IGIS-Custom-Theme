@@ -511,6 +511,10 @@ div#block-igis-searchform form#search-block-form div.form-actions input:hover {
   nav#block-igis-main-navigation:has(+ div #block-igis-searchform.show) {
     margin-top: 100px;
   }
+  #block-igis-searchform {
+    left: 0px;
+    padding: 0px;
+  }
 }
 footer.site-footer {
   background: #35737A;

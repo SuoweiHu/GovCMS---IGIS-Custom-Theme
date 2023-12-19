@@ -439,4 +439,10 @@ div#block-igis-searchform {
     nav#block-igis-main-navigation:has(+ div #block-igis-searchform.show){
         margin-top: 100px
     }
+    #block-igis-searchform{
+        left: 0px;
+        padding: 0px;
+    }
+
 }
+
