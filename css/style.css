@@ -94,7 +94,7 @@ a :hover, .link :hover {
     box-sizing: border-box;
     border-bottom: 3px solid transparent;
   }
-  header#header nav.menu--main ul.navbar-nav li.nav-item:hover > a.nav-link {
+  header#header nav.menu--main ul.navbar-nav li.nav-item:hover > a.nav-link, header#header nav.menu--main ul.navbar-nav li.nav-item a.nav-link:hover {
     border-bottom: 3px solid white !important;
   }
   header#header nav.menu--main ul.navbar-nav li.nav-item:first-of-type > a {
@@ -109,9 +109,11 @@ a :hover, .link :hover {
   header#header nav.menu--main ul.navbar-nav .card-body.link-item-card-body > .link-item-card-body-title:hover, header#header nav.menu--main ul.navbar-nav .card-body.link-item-card-body > .link-item-card-body-text:hover {
     color: white;
   }
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover {
+    display: block;
+    transition-delay: display 0.8s ease-in-out;
     position: absolute;
-    top: 40px;
+    top: 43px;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -121,31 +123,31 @@ a :hover, .link :hover {
     padding-bottom: 20px;
     padding-top: 35px;
   }
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show li.dropdown-item {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container li.dropdown-item, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover li.dropdown-item {
     flex-basis: 30%;
     padding-inline: 0px;
     padding-block: 0px;
     margin-right: 30px;
     margin-bottom: 30px;
   }
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show li.dropdown-item .link-item-card {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container li.dropdown-item .link-item-card, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover li.dropdown-item .link-item-card {
     width: 100%;
     background: #35737A;
   }
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show li.dropdown-item .link-item-card div.link-item-card-body {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container li.dropdown-item .link-item-card div.link-item-card-body, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover li.dropdown-item .link-item-card div.link-item-card-body {
     color: white;
     padding-inline: 0px;
     padding-block: 0px;
   }
 }
 @media (min-width: 1200px) and (min-width: 1200px) and (max-width: 1399px) {
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover {
     left: calc((100vw - 1116px) / 2 * -1);
     padding-inline: calc((100vw - 1116px) / 2);
   }
 }
 @media (min-width: 1200px) and (min-width: 1400px) {
-  header#header nav.menu--main ul.dropdown-menu.link-item-card-container.show {
+  header#header nav.menu--main a.dropdown-toggle:hover + ul.dropdown-menu.link-item-card-container, header#header nav.menu--main ul.dropdown-menu.link-item-card-container:hover {
     left: calc((100vw - 1296px) / 2 * -1);
     padding-inline: calc((100vw - 1296px) / 2);
   }
