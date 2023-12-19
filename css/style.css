@@ -516,6 +516,11 @@ div#sidebar_first > aside > nav > h2 {
   display: none;
 }
 
+div#sidebar_first > aside > nav > ul.nav {
+  position: relative;
+  border: 7px solid #27555a;
+}
+
 div#sidebar_first > aside > nav > ul.nav > li {
   flex-grow: 1;
 }
