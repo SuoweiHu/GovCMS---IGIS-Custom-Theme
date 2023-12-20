@@ -452,7 +452,6 @@ div#block-igis-searchform form#search-block-form div.form-actions {
 }
 div#block-igis-searchform form#search-block-form div.form-actions input {
   border-radius: 0px;
-  position: absolute;
   width: 90px;
   top: 15px;
   transition: all 0.2s ease-in-out;
