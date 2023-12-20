@@ -12,6 +12,7 @@ popper:
 jquery-toc:
   js:
     js/jquery.toc.js: {}
+    js/jquery.toc.trigger.js: {}
   dependencies:
     - core/jquery
     - core/once
