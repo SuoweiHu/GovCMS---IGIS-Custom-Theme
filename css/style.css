@@ -1680,5 +1680,26 @@ div.popup-container:has(button.btn.btn-popup-trigger:hover) {
     position: absolute;
   }
 }
+div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc {
+  --toc-color-border: black;
+  --toc-color-background: #F1F1F1;
+  --toc-color-default-foreground: black;
+  --toc-color-hover-foreground: #35737A ;
+  border-left: 13px solid var(--toc-color-border);
+  background: var(--toc-color-background);
+  padding-block: 15px;
+}
+div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc li a {
+  color: var(--toc-color-default-foreground);
+  text-decoration: none;
+}
+div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc li a:hover {
+  color: var(--toc-color-hover-foreground);
+  text-decoration: underline;
+}
+
+/* Emphasise the first level of toc  */
+/* div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc > li { padding-bottom: 20px; } */
+/* div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc > li > a { font-size: 1.2em;font-weight: bold;} */
 
 /*# sourceMappingURL=style.css.map */
