@@ -9,6 +9,12 @@ global-styling:
 popper:
   js:
     js/popper.js: {}
+jquery-toc:
+  js:
+    js/jquery.toc.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
 menu-search-toggle:
   js:
     js/menu-search-toggle.js: {}

@@ -13,6 +13,7 @@ libraries:
   - igis/tooltip
   - igis/popout
   - igis/menu-search-toggle
+  - igis/jquery-toc
 
 regions:
   top_header: 'Top header'
