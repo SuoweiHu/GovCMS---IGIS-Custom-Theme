@@ -4,6 +4,9 @@ div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc{
 	--toc-color-default-foreground:  black;
 	--toc-color-hover-foreground:    #35737A ;
 	border-left:                     13px solid var(--toc-color-border);
+	border-right:                     2px solid var(--toc-color-border);
+	border-bottom:                    2px solid var(--toc-color-border);
+	border-top:                       2px solid var(--toc-color-border);
 	background:                      var(--toc-color-background);
 	padding-block:                   15px;
     li a{

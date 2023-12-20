@@ -11,9 +11,9 @@ div#sidebar_first > aside  > nav {
     padding:       0px;
     > h2 {
         border-bottom:   0px;
-        border-right:    3px solid var(--sidebar-border-color);
-        border-left:     3px solid var(--sidebar-border-color);
-        border-top:      3px solid var(--sidebar-border-color);
+        border-right:    2px solid var(--sidebar-border-color);
+        border-left:     2px solid var(--sidebar-border-color);
+        border-top:      2px solid var(--sidebar-border-color);
         margin-bottom:   0px;
         margin-left:   -16px;
         margin-right:  -16px;
@@ -28,9 +28,9 @@ div#sidebar_first > aside  > nav {
         padding-top:    10px;
         background:     var(--sidebar-header-background);
         position:       relative;
-        border-bottom:  3px solid var(--sidebar-border-color);
-        border-right:   3px solid var(--sidebar-border-color);
-        border-left:    3px solid var(--sidebar-border-color);
+        border-bottom:  2px solid var(--sidebar-border-color);
+        border-right:   2px solid var(--sidebar-border-color);
+        border-left:    2px solid var(--sidebar-border-color);
         border-top:     0px;
         > li.nav-item {
             flex-grow: 1;

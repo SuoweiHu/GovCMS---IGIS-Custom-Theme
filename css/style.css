@@ -577,9 +577,9 @@ div#sidebar_first > aside > nav {
 }
 div#sidebar_first > aside > nav > h2 {
   border-bottom: 0px;
-  border-right: 3px solid var(--sidebar-border-color);
-  border-left: 3px solid var(--sidebar-border-color);
-  border-top: 3px solid var(--sidebar-border-color);
+  border-right: 2px solid var(--sidebar-border-color);
+  border-left: 2px solid var(--sidebar-border-color);
+  border-top: 2px solid var(--sidebar-border-color);
   margin-bottom: 0px;
   margin-left: -16px;
   margin-right: -16px;
@@ -594,9 +594,9 @@ div#sidebar_first > aside > nav > ul.nav {
   padding-top: 10px;
   background: var(--sidebar-header-background);
   position: relative;
-  border-bottom: 3px solid var(--sidebar-border-color);
-  border-right: 3px solid var(--sidebar-border-color);
-  border-left: 3px solid var(--sidebar-border-color);
+  border-bottom: 2px solid var(--sidebar-border-color);
+  border-right: 2px solid var(--sidebar-border-color);
+  border-left: 2px solid var(--sidebar-border-color);
   border-top: 0px;
 }
 div#sidebar_first > aside > nav > ul.nav > li.nav-item {
@@ -1685,6 +1685,9 @@ div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc {
   --toc-color-default-foreground: black;
   --toc-color-hover-foreground: #35737A ;
   border-left: 13px solid var(--toc-color-border);
+  border-right: 2px solid var(--toc-color-border);
+  border-bottom: 2px solid var(--toc-color-border);
+  border-top: 2px solid var(--toc-color-border);
   background: var(--toc-color-background);
   padding-block: 15px;
 }
