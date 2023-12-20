@@ -1646,6 +1646,18 @@ div.popup-container:has(button.btn.btn-popup-trigger:hover) {
   overflow-x: scroll;
 }
 
+.popup-container tbody {
+  position: relative;
+}
+.popup-container tbody::after {
+  content: " ";
+  height: 100px;
+  width: 100px;
+  background: transparent;
+  position: absolute;
+  right: -60px;
+}
+
 @media (min-width: 1400px) {
   html:has(#sidebar_first) .row.cards-columns-container {
     position: relative;

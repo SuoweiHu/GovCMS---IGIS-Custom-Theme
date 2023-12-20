@@ -126,3 +126,17 @@ div.popup-container:has(button.btn.btn-popup-trigger:hover){
 .modal-body{
 	overflow-x: scroll;
 }
+
+.popup-container{
+    tbody{
+        position: relative;
+        &::after {
+            content: " ";
+            height: 100px;
+            width:  100px;
+            background: transparent;
+            position: absolute;
+            right: -60px;
+        }
+    }
+}
