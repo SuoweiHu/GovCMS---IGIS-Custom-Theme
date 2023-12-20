@@ -1692,7 +1692,7 @@ div.popup-container:has(button.btn.btn-popup-trigger:hover) {
     position: absolute;
   }
 }
-div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc {
+ul#paragraph-toc, ul.ckeditor-toc {
   --toc-color-border: black;
   --toc-color-background: #F1F1F1;
   --toc-color-default-foreground: black;
@@ -1704,11 +1704,11 @@ div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc {
   background: var(--toc-color-background);
   padding-block: 15px;
 }
-div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc li a {
+ul#paragraph-toc li a, ul.ckeditor-toc li a {
   color: var(--toc-color-default-foreground);
   text-decoration: none;
 }
-div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc li a:hover {
+ul#paragraph-toc li a:hover, ul.ckeditor-toc li a:hover {
   color: var(--toc-color-hover-foreground);
   text-decoration: underline;
 }

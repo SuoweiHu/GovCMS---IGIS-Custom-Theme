@@ -15,5 +15,12 @@
  */
 
 (function ($) {
+    // TOC for ckeditor string `[TOC]`
+    var text = '[TOC]';
+    $('p').filter(function() { return $(this).text() === text; }).html('<ul class="ckeditor-toc"></ul>');;
+    $(".ckeditor-toc").toc();
+    // TOC for praragraph types
     $("#paragraph-toc").toc();
 }(window.jQuery));
+
+
