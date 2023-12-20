@@ -33,6 +33,7 @@ div#sidebar_first > aside  > nav {
         border-left:    2px solid var(--sidebar-border-color);
         border-top:     0px;
         > li.nav-item {
+            width: 100%;
             flex-grow: 1;
             > a {
                 background: var(--sidebar-default-background);

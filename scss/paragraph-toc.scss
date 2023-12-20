@@ -9,12 +9,14 @@ div.paragraph.paragraph--type--table-of-content-toc- > ul#paragraph-toc{
 	border-top:                       2px solid var(--toc-color-border);
 	background:                      var(--toc-color-background);
 	padding-block:                   15px;
-    li a{
-        color: var(--toc-color-default-foreground);
-        text-decoration: none;
-        &:hover{
-            color: var(--toc-color-hover-foreground);
-            text-decoration: underline;
+    li {
+        a{
+            color: var(--toc-color-default-foreground);
+            text-decoration: none;
+            &:hover{
+                color: var(--toc-color-hover-foreground);
+                text-decoration: underline;
+            }
         }
     }
 }

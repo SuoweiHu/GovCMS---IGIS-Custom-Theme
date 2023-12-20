@@ -600,6 +600,7 @@ div#sidebar_first > aside > nav > ul.nav {
   border-top: 0px;
 }
 div#sidebar_first > aside > nav > ul.nav > li.nav-item {
+  width: 100%;
   flex-grow: 1;
 }
 div#sidebar_first > aside > nav > ul.nav > li.nav-item > a {
