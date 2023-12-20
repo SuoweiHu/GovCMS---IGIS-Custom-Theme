@@ -32,6 +32,50 @@ a :hover, .link :hover {
   color: red;
 }
 
+footer.site-footer {
+  background: #35737A;
+  padding-block: 1em;
+}
+footer.site-footer div.container {
+  width: 1600px;
+  margin-inline: auto;
+}
+footer.site-footer div.container div.site-footer__top {
+  display: flex;
+}
+footer.site-footer div.container div.site-footer__top section {
+  flex-grow: 1;
+  margin-right: 50px;
+}
+footer.site-footer div.container div.site-footer__top section div.block {
+  border: none;
+  padding-block: none;
+}
+footer.site-footer div.container div.site-footer__top section div.block li {
+  list-style: disc;
+  color: #BDBCBD;
+}
+footer.site-footer div.container div.site-footer__top section div.block li a {
+  text-decoration: underline 1px;
+  color: #BDBCBD;
+}
+footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement {
+  margin-block: 0px;
+  padding-block: 0px;
+  width: 50%;
+}
+footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement a {
+  margin-right: 10px;
+}
+
+.path-frontpage h1.title {
+  display: none;
+}
+
+.path-frontpage ol.breadcrumb {
+  display: none;
+}
+
 @media (max-width: 1199px) {
   header#header nav#navbar-main ul.nav.navbar-nav.container[container-type=desktop] {
     display: none;
@@ -515,50 +559,6 @@ div#block-igis-searchform form#search-block-form div.form-actions input:hover {
     padding: 0px;
   }
 }
-footer.site-footer {
-  background: #35737A;
-  padding-block: 1em;
-}
-footer.site-footer div.container {
-  width: 1600px;
-  margin-inline: auto;
-}
-footer.site-footer div.container div.site-footer__top {
-  display: flex;
-}
-footer.site-footer div.container div.site-footer__top section {
-  flex-grow: 1;
-  margin-right: 50px;
-}
-footer.site-footer div.container div.site-footer__top section div.block {
-  border: none;
-  padding-block: none;
-}
-footer.site-footer div.container div.site-footer__top section div.block li {
-  list-style: disc;
-  color: #BDBCBD;
-}
-footer.site-footer div.container div.site-footer__top section div.block li a {
-  text-decoration: underline 1px;
-  color: #BDBCBD;
-}
-footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement {
-  margin-block: 0px;
-  padding-block: 0px;
-  width: 50%;
-}
-footer.site-footer div.container div.site-footer__top section div#block-igis-footeracknoledgement a {
-  margin-right: 10px;
-}
-
-.path-frontpage h1.title {
-  display: none;
-}
-
-.path-frontpage ol.breadcrumb {
-  display: none;
-}
-
 @media (max-width: 1199px) {
   div#sidebar_first {
     display: none;
